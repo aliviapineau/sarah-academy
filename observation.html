@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eagle Eye Memory - BCPD 180th</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body class="bg-[#0f172a] text-slate-200 antialiased min-h-screen p-6 font-sans">
+  
+  <div class="max-w-4xl mx-auto space-y-8">
+    
+    <!-- Header -->
+    <header class="flex items-center gap-4 border-b border-slate-700 pb-6">
+      <a href="index.html" class="p-2 hover:bg-slate-800 rounded-lg transition-colors text-slate-400 hover:text-white">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+      </a>
+      <div>
+        <h1 class="text-2xl font-bold text-white flex items-center gap-3">
+          Eagle Eye Memory
+        </h1>
+        <p class="text-slate-400 text-sm mt-1">Train your observation and memory skills.</p>
+      </div>
+    </header>
+
+    <!-- Start Screen -->
+    <div id="obs-start" class="flex flex-col items-center gap-6 mt-12 max-w-2xl mx-auto w-full text-center">
+        <div class="glass-card w-full rounded-2xl p-10 border-t-4 border-t-teal-500">
+            <h2 class="text-3xl font-bold text-white mb-4">Observation Challenge</h2>
+            <p class="text-slate-300 mb-8 text-lg">You will be shown a scene or a suspect profile for exactly <strong>10 seconds</strong>. Memorize as many details as possible. When the time is up, you will be tested.</p>
+            <button id="btn-start-obs" class="px-8 py-3 bg-teal-600 hover:bg-teal-500 text-white rounded-xl font-bold text-lg transition-colors shadow-lg">Start Challenge</button>
+        </div>
+    </div>
+
+    <!-- Observation Phase Screen -->
+    <div id="obs-view" class="hidden flex-col items-center gap-6 mt-8 max-w-3xl mx-auto w-full">
+        <div class="w-full flex justify-between items-center text-slate-300 bg-slate-800 px-6 py-3 rounded-xl border border-slate-600 shadow-md">
+            <span class="font-bold uppercase tracking-wider text-sm text-teal-400" id="obs-scene-title">Scene 1: Traffic Stop</span>
+            <div class="flex items-center gap-2">
+                <svg class="w-5 h-5 text-red-400 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                <span id="obs-timer" class="text-xl font-bold text-white font-mono">10</span>
+            </div>
+        </div>
+
+        <div class="glass-card w-full rounded-2xl p-8 text-center min-h-[300px] flex items-center justify-center">
+            <!-- Content injected via JS -->
+            <div id="obs-content" class="text-xl text-white space-y-4"></div>
+        </div>
+    </div>
+
+    <!-- Quiz Phase Screen -->
+    <div id="obs-quiz" class="hidden flex-col items-center gap-6 mt-8 max-w-2xl mx-auto w-full">
+        
+        <div class="glass-card w-full rounded-2xl p-8 border-t-4 border-t-teal-500 text-center">
+            <h2 class="text-2xl font-bold text-white mb-8" id="obs-question">What was the license plate number?</h2>
+            
+            <div class="grid grid-cols-1 gap-4 w-full" id="obs-options">
+                <!-- Buttons injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Result Screen -->
+    <div id="obs-result" class="hidden glass-card max-w-2xl mx-auto rounded-2xl p-10 text-center mt-12 border-t-4 border-t-teal-500">
+        <h3 class="text-3xl font-bold text-white mb-2" id="obs-result-msg">--</h3>
+        <p class="text-slate-400 mb-8 text-lg" id="obs-result-desc">--</p>
+        <button id="btn-next-obs" class="px-8 py-3 bg-teal-600 hover:bg-teal-500 text-white rounded-xl font-bold transition-colors">Next Challenge</button>
+    </div>
+
+  </div>
+
+  <script src="assets/games.js"></script>
+</body>
+</html>
