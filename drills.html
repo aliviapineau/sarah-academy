@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>National Guard Schedule - BCPD 180th</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body class="bg-[#0f172a] text-slate-200 antialiased min-h-screen p-6 font-sans">
+  
+  <div class="max-w-4xl mx-auto space-y-8">
+    
+    <!-- Header -->
+    <header class="flex items-center gap-4 border-b border-slate-700 pb-6">
+      <a href="index.html" class="p-2 hover:bg-slate-800 rounded-lg transition-colors text-slate-400 hover:text-white">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+      </a>
+      <div>
+        <h1 class="text-2xl font-bold text-white flex items-center gap-3">
+          National Guard Drills
+        </h1>
+        <p class="text-slate-400 text-sm mt-1">104th Medical Company Area Support (MCAS) TY26</p>
+      </div>
+    </header>
+
+    <!-- Next Drill Widget -->
+    <div class="glass-card w-full rounded-2xl p-6 border-t-4 border-t-stone-500 flex flex-col md:flex-row justify-between items-center bg-stone-900/30">
+        <div>
+            <h2 class="text-stone-400 font-bold uppercase tracking-wider text-sm mb-1">Next Scheduled Drill</h2>
+            <p class="text-3xl font-bold text-white" id="next-drill-date">Calculating...</p>
+            <p class="text-sm text-slate-400 mt-1" id="next-drill-details">--</p>
+        </div>
+        <div class="mt-4 md:mt-0 text-center bg-stone-800 px-6 py-3 rounded-xl border border-stone-600">
+            <span class="block text-3xl font-bold text-stone-300" id="drill-countdown">--</span>
+            <span class="text-xs font-semibold text-stone-400 uppercase tracking-wider">Days Away</span>
+        </div>
+    </div>
+
+    <!-- Alert / Instructions -->
+    <div class="bg-amber-500/10 border border-amber-500/30 rounded-xl p-4 flex gap-4 items-start">
+        <span class="text-amber-500 text-2xl">⚠️</span>
+        <div>
+            <p class="text-amber-200 font-bold mb-1">Academy Conflict Notice</p>
+            <p class="text-sm text-amber-100/70">Drills scheduled before April 27, 2027 overlap with your Police Academy training. You must submit requests for split train through your chain of command (Commander and/or First Sergeant) for approval, and ensure your BCPD squad sergeant is notified immediately.</p>
+        </div>
+    </div>
+
+    <!-- Schedule Table -->
+    <div class="glass-card rounded-2xl overflow-hidden border border-slate-700">
+        <table class="w-full text-left text-sm text-slate-300">
+            <thead class="bg-slate-800 text-slate-400 uppercase font-semibold">
+                <tr>
+                    <th class="px-6 py-4">Dates</th>
+                    <th class="px-6 py-4">Type of Drill</th>
+                    <th class="px-6 py-4">Location</th>
+                    <th class="px-6 py-4">Conflict Status</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-700/50" id="drill-table-body">
+                <!-- Injected via JS -->
+            </tbody>
+        </table>
+    </div>
+
+  </div>
+
+  <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          const drills = [
+              { dates: "17-18 October 2026", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2026-10-17T00:00:00") },
+              { dates: "14-15 November 2026", type: "MUTA 4", loc: "CFMR", rawDate: new Date("2026-11-14T00:00:00") },
+              { dates: "12-13 December 2026", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2026-12-12T00:00:00") },
+              { dates: "23-24 January 2027", type: "MUTA 4", loc: "CFMR", rawDate: new Date("2027-01-23T00:00:00") },
+              { dates: "20-21 February 2027", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2027-02-20T00:00:00") },
+              { dates: "19-21 March 2027", type: "MUTA 2x2x2", loc: "CFMR", rawDate: new Date("2027-03-19T00:00:00") },
+              { dates: "17-18 April 2027", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2027-04-17T00:00:00") },
+              { dates: "14-16 May 2027", type: "MUTA 6", loc: "FT A.P. Hill", rawDate: new Date("2027-05-14T00:00:00") },
+              { dates: "04-18 June 2027", type: "Annual Training", loc: "CFMR/LCMR", rawDate: new Date("2027-06-04T00:00:00") },
+              { dates: "24-25 July 2027", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2027-07-24T00:00:00") },
+              { dates: "21-22 August 2027", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2027-08-21T00:00:00") },
+              { dates: "18-19 September 2027", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2027-09-18T00:00:00") }
+          ];
+
+          const academyGradDate = new Date("2027-04-27T00:00:00");
+          const today = new Date();
+          
+          let nextDrill = null;
+          const tbody = document.getElementById('drill-table-body');
+
+          drills.forEach(drill => {
+              // Determine if it's the next upcoming drill
+              if (!nextDrill && drill.rawDate > today) {
+                  nextDrill = drill;
+              }
+
+              const isConflict = drill.rawDate < academyGradDate;
+              
+              const tr = document.createElement('tr');
+              tr.className = "hover:bg-slate-800/50 transition-colors";
+              
+              // Highlight next drill specifically
+              if (nextDrill === drill) {
+                  tr.classList.add('bg-stone-800/40');
+              }
+
+              const conflictBadge = isConflict 
+                  ? '<span class="bg-amber-500/20 text-amber-400 px-2 py-1 rounded text-xs font-bold border border-amber-500/30">Academy Overlap</span>'
+                  : '<span class="bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded text-xs font-bold border border-emerald-500/30">Post-Graduation</span>';
+
+              tr.innerHTML = \`
+                  <td class="px-6 py-4 font-medium \${nextDrill === drill ? 'text-stone-300' : 'text-white' }">\${drill.dates}</td>
+                  <td class="px-6 py-4">\${drill.type}</td>
+                  <td class="px-6 py-4">\${drill.loc}</td>
+                  <td class="px-6 py-4">\${conflictBadge}</td>
+              \`;
+              tbody.appendChild(tr);
+          });
+
+          // Update widget
+          if (nextDrill) {
+              document.getElementById('next-drill-date').textContent = nextDrill.dates;
+              document.getElementById('next-drill-details').textContent = \`\${nextDrill.type} @ \${nextDrill.loc}\`;
+              
+              const diffTime = Math.abs(nextDrill.rawDate - today);
+              const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+              document.getElementById('drill-countdown').textContent = diffDays;
+          } else {
+              document.getElementById('next-drill-date').textContent = "No upcoming drills";
+              document.getElementById('drill-countdown').textContent = "0";
+          }
+      });
+  </script>
+</body>
+</html>
