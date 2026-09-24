@@ -108,19 +108,19 @@
                   ? '<span class="bg-amber-500/20 text-amber-400 px-2 py-1 rounded text-xs font-bold border border-amber-500/30">Academy Overlap</span>'
                   : '<span class="bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded text-xs font-bold border border-emerald-500/30">Post-Graduation</span>';
 
-              tr.innerHTML = \`
-                  <td class="px-6 py-4 font-medium \${nextDrill === drill ? 'text-stone-300' : 'text-white' }">\${drill.dates}</td>
-                  <td class="px-6 py-4">\${drill.type}</td>
-                  <td class="px-6 py-4">\${drill.loc}</td>
-                  <td class="px-6 py-4">\${conflictBadge}</td>
-              \`;
+              tr.innerHTML = `
+                  <td class="px-6 py-4 font-medium ${nextDrill === drill ? 'text-stone-300' : 'text-white' }">${drill.dates}</td>
+                  <td class="px-6 py-4">${drill.type}</td>
+                  <td class="px-6 py-4">${drill.loc}</td>
+                  <td class="px-6 py-4">${conflictBadge}</td>
+              `;
               tbody.appendChild(tr);
           });
 
           // Update widget
           if (nextDrill) {
               document.getElementById('next-drill-date').textContent = nextDrill.dates;
-              document.getElementById('next-drill-details').textContent = \`\${nextDrill.type} @ \${nextDrill.loc}\`;
+              document.getElementById('next-drill-details').textContent = `${nextDrill.type} @ ${nextDrill.loc}`;
               
               const diffTime = Math.abs(nextDrill.rawDate - today);
               const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
