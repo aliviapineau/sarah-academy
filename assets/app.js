@@ -5,15 +5,48 @@ document.addEventListener('DOMContentLoaded', () => {
     if (daysCountEl) {
         // Countdown to April 27
         const gradDate = new Date('2027-04-27T00:00:00');
+        const today = new Date();
         
-        const updateCountdown = () => {
-            const now = new Date();
-            const diffTime = Math.abs(gradDate - now);
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
-            daysCountEl.textContent = diffDays;
-        };
+        const diffTime = Math.abs(gradDate - today);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+        daysCountEl.textContent = diffDays;
+    }
+
+    // Home Page Drill Widget
+    const homeDrillDateEl = document.getElementById('home-next-drill-date');
+    if (homeDrillDateEl) {
+        const drills = [
+            { dates: "17-18 October 2026", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2026-10-17T00:00:00") },
+            { dates: "14-15 November 2026", type: "MUTA 4", loc: "CFMR", rawDate: new Date("2026-11-14T00:00:00") },
+            { dates: "12-13 December 2026", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2026-12-12T00:00:00") },
+            { dates: "23-24 January 2027", type: "MUTA 4", loc: "CFMR", rawDate: new Date("2027-01-23T00:00:00") },
+            { dates: "20-21 February 2027", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2027-02-20T00:00:00") },
+            { dates: "19-21 March 2027", type: "MUTA 2x2x2", loc: "CFMR", rawDate: new Date("2027-03-19T00:00:00") },
+            { dates: "17-18 April 2027", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2027-04-17T00:00:00") },
+            { dates: "14-16 May 2027", type: "MUTA 6", loc: "FT A.P. Hill", rawDate: new Date("2027-05-14T00:00:00") },
+            { dates: "04-18 June 2027", type: "Annual Training", loc: "CFMR/LCMR", rawDate: new Date("2027-06-04T00:00:00") },
+            { dates: "24-25 July 2027", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2027-07-24T00:00:00") },
+            { dates: "21-22 August 2027", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2027-08-21T00:00:00") },
+            { dates: "18-19 September 2027", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2027-09-18T00:00:00") }
+        ];
         
-        updateCountdown();
+        const today = new Date();
+        let nextDrill = null;
+        
+        drills.forEach(drill => {
+            if (!nextDrill && drill.rawDate > today) {
+                nextDrill = drill;
+            }
+        });
+
+        if (nextDrill) {
+            homeDrillDateEl.textContent = nextDrill.dates;
+            document.getElementById('home-next-drill-details').textContent = `${nextDrill.type} @ ${nextDrill.loc}`;
+            
+            const diffTime = Math.abs(nextDrill.rawDate - today);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            document.getElementById('home-drill-countdown').textContent = diffDays;
+        }
     }
 
 
