@@ -53,17 +53,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalTrainingDays = getBusinessDays(startDate, gradDate);
         const completedTrainingDays = getBusinessDays(startDate, today);
 
-        // Update UI Text
-        document.getElementById('total-days').textContent = totalTrainingDays;
-        document.getElementById('completed-days').textContent = Math.min(completedTrainingDays, totalTrainingDays);
-
         // Update Circle Progress SVG
         const percentage = Math.min((completedTrainingDays / totalTrainingDays) * 100, 100);
         document.getElementById('progress-text').textContent = Math.round(percentage) + '%';
         
-        // Circle circumference is 125.6 (2 * pi * r where r=20)
+        // Circle circumference is 163.3 (2 * pi * r where r=26)
         const circle = document.getElementById('progress-circle');
-        const offset = 125.6 - (percentage / 100) * 125.6;
+        const offset = 163.3 - (percentage / 100) * 163.3;
         
         // Small delay so the transition animation actually plays on load
         setTimeout(() => {

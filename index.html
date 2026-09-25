@@ -31,31 +31,26 @@
         </div>
 
         <!-- Graduation Countdown -->
-        <div class="flex items-center gap-6 bg-slate-800/90 border-2 border-purple-500 px-6 py-3 rounded-2xl shadow-[0_0_20px_rgba(168,85,247,0.4)]">
-          <div class="text-right">
-            <p class="text-xs text-purple-300 uppercase tracking-wider font-bold">Graduation Day</p>
-            <div class="text-3xl font-mono font-bold text-white flex items-center gap-2 mt-1">
-              <span class="bg-purple-600 px-3 py-1 rounded-lg" id="days-count">--</span>
-              <span class="text-purple-300 text-sm font-semibold uppercase tracking-wider">Days</span>
-            </div>
+        <div class="flex flex-col items-center bg-slate-800/90 border-2 border-purple-500 px-6 py-4 rounded-2xl shadow-[0_0_20px_rgba(168,85,247,0.4)]">
+          <div class="text-4xl font-mono font-bold text-white flex items-center justify-center gap-2">
+            <span class="bg-purple-600 px-4 py-2 rounded-lg" id="days-count">--</span>
           </div>
+          <p class="text-xs text-purple-300 uppercase tracking-wider font-bold mt-2">Days Until Graduation</p>
         </div>
 
         <!-- Progress Chart -->
-        <div class="flex items-center gap-3 text-right mr-1">
-          <div>
-            <p class="text-xs text-slate-400 uppercase tracking-wider font-bold">Training Progress</p>
-            <p class="text-sm font-semibold text-slate-300"><span id="completed-days">--</span> / <span id="total-days">--</span> Days</p>
-          </div>
-          <div class="relative w-12 h-12">
-            <svg class="w-12 h-12 transform -rotate-90">
-              <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="4" fill="transparent" class="text-slate-700" />
-              <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="4" fill="transparent" stroke-dasharray="125.6" stroke-dashoffset="125.6" class="text-emerald-500 transition-all duration-1000 ease-out" id="progress-circle" />
+        <div class="flex flex-col items-center mt-2">
+          <p class="text-xs text-slate-400 uppercase tracking-wider font-bold mb-2">Training Progress</p>
+          <div class="relative w-16 h-16">
+            <svg class="w-16 h-16 transform -rotate-90">
+              <circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="6" fill="transparent" class="text-slate-700" />
+              <circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="6" fill="transparent" stroke-dasharray="163.3" stroke-dashoffset="163.3" class="text-emerald-500 transition-all duration-1000 ease-out" id="progress-circle" />
             </svg>
             <div class="absolute inset-0 flex items-center justify-center">
-              <span class="text-xs font-bold text-white" id="progress-text">0%</span>
+              <span class="text-sm font-bold text-white" id="progress-text">0%</span>
             </div>
           </div>
+          <p class="text-xs font-semibold text-emerald-500 uppercase tracking-wider mt-2">Completed</p>
         </div>
       </div>
     </header>
