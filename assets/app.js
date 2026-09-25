@@ -3,13 +3,72 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. Dashboard Logic (index.html) ---
     const daysCountEl = document.getElementById('days-count');
     if (daysCountEl) {
-        // Countdown to April 27
-        const gradDate = new Date('2027-04-27T00:00:00');
+        // Today's Date Display
         const today = new Date();
-        
+        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const currentDateEl = document.getElementById('current-date-display');
+        if (currentDateEl) {
+            currentDateEl.textContent = today.toLocaleDateString('en-US', options);
+        }
+
+        // Graduation Countdown
+        const gradDate = new Date('2027-04-27T00:00:00');
         const diffTime = Math.abs(gradDate - today);
         const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
         daysCountEl.textContent = diffDays;
+
+        // Training Progress Calculation (Excluding Weekends & Holidays)
+        const startDate = new Date('2026-09-21T00:00:00');
+        
+        // Typical government holidays during this academy period
+        const holidays = [
+            '2026-10-12', // Columbus Day
+            '2026-11-11', // Veterans Day
+            '2026-11-26', // Thanksgiving
+            '2026-11-27', // Day after Thanksgiving
+            '2026-12-25', // Christmas
+            '2027-01-01', // New Year
+            '2027-01-18', // MLK Jr. Day
+            '2027-02-15'  // Presidents Day
+        ];
+
+        function isBusinessDay(date) {
+            const day = date.getDay();
+            if (day === 0 || day === 6) return false; // Sunday = 0, Saturday = 6
+            const formattedDate = date.toISOString().split('T')[0];
+            if (holidays.includes(formattedDate)) return false;
+            return true;
+        }
+
+        function getBusinessDays(start, end) {
+            let count = 0;
+            let curDate = new Date(start.getTime());
+            while (curDate <= end) {
+                if (isBusinessDay(curDate)) count++;
+                curDate.setDate(curDate.getDate() + 1);
+            }
+            return count;
+        }
+
+        const totalTrainingDays = getBusinessDays(startDate, gradDate);
+        const completedTrainingDays = getBusinessDays(startDate, today);
+
+        // Update UI Text
+        document.getElementById('total-days').textContent = totalTrainingDays;
+        document.getElementById('completed-days').textContent = Math.min(completedTrainingDays, totalTrainingDays);
+
+        // Update Circle Progress SVG
+        const percentage = Math.min((completedTrainingDays / totalTrainingDays) * 100, 100);
+        document.getElementById('progress-text').textContent = Math.round(percentage) + '%';
+        
+        // Circle circumference is 125.6 (2 * pi * r where r=20)
+        const circle = document.getElementById('progress-circle');
+        const offset = 125.6 - (percentage / 100) * 125.6;
+        
+        // Small delay so the transition animation actually plays on load
+        setTimeout(() => {
+            circle.style.strokeDashoffset = offset;
+        }, 100);
     }
 
     // Home Page Drill Widget

@@ -23,12 +23,38 @@
         <p class="text-slate-300 mt-2 text-lg">Welcome back, <span class="text-blue-400 font-bold">Recruit Thompson</span>. Stay sharp, stay safe.</p>
       </div>
       
-      <div class="flex items-center gap-6 bg-slate-800/90 border-2 border-purple-500 px-6 py-3 rounded-2xl shadow-[0_0_20px_rgba(168,85,247,0.4)] md:ml-auto">
+      <div class="flex flex-col items-end gap-3 md:ml-auto">
+        <!-- Current Date -->
         <div class="text-right">
-          <p class="text-xs text-purple-300 uppercase tracking-wider font-bold">Graduation Day</p>
-          <div class="text-3xl font-mono font-bold text-white flex items-center gap-2 mt-1">
-            <span class="bg-purple-600 px-3 py-1 rounded-lg" id="days-count">--</span>
-            <span class="text-purple-300 text-sm font-semibold uppercase tracking-wider">Days</span>
+          <p class="text-xs text-slate-400 uppercase tracking-wider font-bold">Current Date</p>
+          <p class="text-md font-bold text-blue-400" id="current-date-display">--</p>
+        </div>
+
+        <!-- Graduation Countdown -->
+        <div class="flex items-center gap-6 bg-slate-800/90 border-2 border-purple-500 px-6 py-3 rounded-2xl shadow-[0_0_20px_rgba(168,85,247,0.4)]">
+          <div class="text-right">
+            <p class="text-xs text-purple-300 uppercase tracking-wider font-bold">Graduation Day</p>
+            <div class="text-3xl font-mono font-bold text-white flex items-center gap-2 mt-1">
+              <span class="bg-purple-600 px-3 py-1 rounded-lg" id="days-count">--</span>
+              <span class="text-purple-300 text-sm font-semibold uppercase tracking-wider">Days</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress Chart -->
+        <div class="flex items-center gap-3 text-right mr-1">
+          <div>
+            <p class="text-xs text-slate-400 uppercase tracking-wider font-bold">Training Progress</p>
+            <p class="text-sm font-semibold text-slate-300"><span id="completed-days">--</span> / <span id="total-days">--</span> Days</p>
+          </div>
+          <div class="relative w-12 h-12">
+            <svg class="w-12 h-12 transform -rotate-90">
+              <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="4" fill="transparent" class="text-slate-700" />
+              <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="4" fill="transparent" stroke-dasharray="125.6" stroke-dashoffset="125.6" class="text-emerald-500 transition-all duration-1000 ease-out" id="progress-circle" />
+            </svg>
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="text-xs font-bold text-white" id="progress-text">0%</span>
+            </div>
           </div>
         </div>
       </div>
@@ -108,10 +134,10 @@
       </div>
     </section>
 
-    <!-- Games and Study Guides Section -->
+    <!-- Study Guides Section -->
     <section>
-      <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-700 pb-2">Games & Study Guides</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-700 pb-2">Study Guides & Quizzes</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         
         <!-- Module: 10-Codes -->
         <a href="10-codes.html" class="block">
@@ -148,6 +174,31 @@
             <button class="w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium transition-colors">Start Review</button>
           </div>
         </a>
+
+        <!-- Module: Manual Quiz -->
+        <a href="manual-quiz.html" class="block">
+          <div class="glass-card rounded-2xl p-6 hover-scale cursor-pointer flex flex-col justify-between h-56 border-t-4 border-t-purple-500">
+            <div>
+              <div class="flex justify-between items-start mb-4">
+                <div class="p-3 bg-purple-500/20 rounded-lg">
+                  <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                </div>
+                <span class="text-xs font-semibold bg-purple-500/20 text-purple-400 px-2 py-1 rounded-full">New</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-1">Handbook Exam</h3>
+              <p class="text-sm text-slate-400">Test your knowledge of rules & regulations.</p>
+            </div>
+            <button class="w-full py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg text-sm font-medium transition-colors">Take Quiz</button>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- Games Section -->
+    <section>
+      <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-700 pb-2 mt-8">Games</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
         <!-- Module: Eagle Eye Observation -->
         <a href="observation.html" class="block">

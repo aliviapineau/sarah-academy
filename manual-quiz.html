@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Handbook Exam - BCPD 180th</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body class="bg-[#0f172a] text-slate-200 antialiased min-h-screen p-6 font-sans">
+  
+  <div class="max-w-2xl mx-auto space-y-8">
+    
+    <!-- Header -->
+    <header class="flex items-center justify-between border-b border-slate-700 pb-6">
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="p-2 hover:bg-slate-800 rounded-lg transition-colors text-slate-400 hover:text-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        </a>
+        <div>
+          <h1 class="text-2xl font-bold text-white flex items-center gap-3">
+            Handbook Exam
+          </h1>
+          <p class="text-slate-400 text-sm mt-1">Rules, Regulations, & Daily Conduct.</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- App Container -->
+    <div class="glass-card rounded-2xl p-8 border-t-4 border-t-purple-500 min-h-[400px] flex flex-col justify-center">
+      
+      <!-- Start Screen -->
+      <div id="start-screen" class="text-center">
+        <div class="w-20 h-20 bg-purple-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+            <svg class="w-10 h-10 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+        </div>
+        <h2 class="text-2xl font-bold text-white mb-4">Academy Handbook Exam</h2>
+        <p class="text-slate-400 mb-8 max-w-md mx-auto">This exam will pull exactly 10 random questions (2 True/False and 8 Multiple Choice) from a large pool based entirely on the Academy Handbook. No two exams are identical.</p>
+        <button onclick="startQuiz()" class="w-full md:w-auto px-8 py-3 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-xl transition-colors shadow-lg shadow-purple-900/50">
+          Begin Exam
+        </button>
+      </div>
+
+      <!-- Quiz Screen -->
+      <div id="quiz-screen" class="hidden flex-col h-full">
+        <div class="flex justify-between items-center mb-6">
+          <span id="question-counter" class="text-sm font-bold text-purple-400 uppercase tracking-wider bg-purple-500/10 px-3 py-1 rounded-full">Question 1 of 10</span>
+        </div>
+        
+        <div class="flex-grow flex flex-col justify-center">
+          <h3 id="question-text" class="text-2xl font-bold text-white mb-8 text-center leading-relaxed">Loading question...</h3>
+          <div id="options-container" class="space-y-3">
+             <!-- Options dynamically injected here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Results Screen -->
+      <div id="results-screen" class="hidden text-center">
+        <h2 class="text-2xl font-bold text-white mb-2">Exam Complete</h2>
+        <p class="text-slate-400 mb-8">Here is how you scored on this round:</p>
+        
+        <div class="text-6xl font-bold text-white mb-4" id="final-score">0 / 10</div>
+        <p id="result-message" class="text-purple-400 font-bold mb-8"></p>
+        
+        <div class="flex gap-4 justify-center">
+            <button onclick="startQuiz()" class="px-6 py-3 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-xl transition-colors">
+              Retake Exam
+            </button>
+            <a href="handbook.html" class="px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-xl transition-colors">
+              Review Handbook
+            </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="assets/manual-quiz.js"></script>
+</body>
+</html>
