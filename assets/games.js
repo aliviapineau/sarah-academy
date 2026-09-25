@@ -25,13 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
             {
                 title: "Scene 1: Suspect Description",
                 content: `
-                    <div class="text-left bg-slate-800 p-6 rounded-xl border border-slate-600 w-full max-w-sm mx-auto shadow-inner">
-                        <ul class="space-y-3 text-slate-300">
-                            <li><strong class="text-teal-400">Gender:</strong> Male</li>
-                            <li><strong class="text-teal-400">Build:</strong> Heavy</li>
-                            <li><strong class="text-teal-400">Clothing:</strong> Red baseball cap, black hoodie with white strings, blue jeans.</li>
-                            <li><strong class="text-teal-400">Defining Feature:</strong> Silver watch on right wrist.</li>
-                        </ul>
+                    <div class="flex justify-center items-center w-full h-full max-h-80 overflow-hidden rounded-xl border border-slate-600 shadow-inner">
+                        <img src="assets/suspect1.png" alt="Suspect" class="object-cover max-h-full">
                     </div>
                 `,
                 question: "Which wrist was the suspect wearing the watch on?",
