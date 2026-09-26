@@ -46,6 +46,11 @@
             </div>
         </div>
 
+        <div id="fc-mnemonic-container" class="hidden mt-2 text-center w-full max-w-md">
+            <button id="btn-fc-trick" class="text-amber-400 hover:text-amber-300 text-sm font-medium underline underline-offset-4 transition-colors">Want a trick to remember?</button>
+            <p id="fc-mnemonic-text" class="hidden mt-2 p-3 bg-slate-900/50 rounded-lg border border-slate-700 text-slate-300 italic text-sm"></p>
+        </div>
+
         <div class="flex gap-4">
             <button id="btn-prev-card" class="px-6 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors">Previous</button>
             <button id="btn-next-card" class="px-6 py-2 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-colors">Next</button>
@@ -66,9 +71,12 @@
                 <!-- Buttons injected via JS -->
             </div>
 
-            <!-- Mnemonic Container -->
-            <div id="quiz-mnemonic" class="hidden mt-6 p-4 bg-slate-900/50 rounded-lg border border-slate-700 text-slate-300 italic text-sm">
-                <!-- Mnemonic text injected via JS -->
+            <!-- Mnemonic & Next Button Container -->
+            <div id="quiz-mnemonic-wrapper" class="hidden mt-6 text-center">
+                <div id="quiz-mnemonic" class="p-4 bg-slate-900/50 rounded-lg border border-slate-700 text-slate-300 italic text-sm mb-4">
+                    <!-- Mnemonic text injected via JS -->
+                </div>
+                <button id="btn-quiz-next" class="w-full px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white rounded-xl font-bold transition-colors">Next Question</button>
             </div>
         </div>
         

@@ -144,9 +144,31 @@ document.addEventListener('DOMContentLoaded', () => {
             fcProgress.textContent = `Card ${index + 1} of ${shuffledCards.length}`;
             // Ensure card is flipped front-side up when loading new card
             fcCard.classList.remove('flipped');
+            
+            // Handle flashcard trick
+            const fcMnemonicContainer = document.getElementById('fc-mnemonic-container');
+            const fcTrickBtn = document.getElementById('btn-fc-trick');
+            const fcMnemonicText = document.getElementById('fc-mnemonic-text');
+            
+            if (fcMnemonicContainer && fcTrickBtn && fcMnemonicText) {
+                if (card.mnemonic) {
+                    fcMnemonicContainer.classList.remove('hidden');
+                    fcTrickBtn.classList.remove('hidden');
+                    fcMnemonicText.classList.add('hidden');
+                    fcMnemonicText.textContent = card.mnemonic;
+                } else {
+                    fcMnemonicContainer.classList.add('hidden');
+                }
+            }
         };
 
         if (fcFront) loadFlashcard(currentCardIndex);
+
+        // Flashcard Trick Button Logic
+        document.getElementById('btn-fc-trick')?.addEventListener('click', (e) => {
+            e.target.classList.add('hidden');
+            document.getElementById('fc-mnemonic-text')?.classList.remove('hidden');
+        });
 
         document.getElementById('btn-next-card')?.addEventListener('click', () => {
             currentCardIndex = (currentCardIndex + 1) % shuffledCards.length;
@@ -190,9 +212,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Hide mnemonic from previous question
-            const mnemonicEl = document.getElementById('quiz-mnemonic');
-            if (mnemonicEl) mnemonicEl.classList.add('hidden');
+            // Hide mnemonic and Next button wrapper from previous question
+            const mnemonicWrapperEl = document.getElementById('quiz-mnemonic-wrapper');
+            if (mnemonicWrapperEl) mnemonicWrapperEl.classList.add('hidden');
 
             // Pick the next code from the shuffled pool
             currentQuizCard = shuffledQuizPool[currentQuestion];
@@ -256,12 +278,15 @@ document.addEventListener('DOMContentLoaded', () => {
             // Disable all buttons
             Array.from(quizOptions.children).forEach(b => b.disabled = true);
             
+            let isCorrect = false;
+
             // Check if both meaning and code match (important for alphabet distractors which share the same code)
             if (selectedOpt.code === currentQuizCard.code && selectedOpt.meaning === currentQuizCard.meaning) {
                 // Correct
                 btnElement.classList.replace('bg-slate-800', 'bg-green-600');
                 btnElement.classList.replace('hover:bg-slate-700', 'bg-green-600');
                 score++;
+                isCorrect = true;
             } else {
                 // Incorrect
                 btnElement.classList.replace('bg-slate-800', 'bg-red-600');
@@ -278,18 +303,43 @@ document.addEventListener('DOMContentLoaded', () => {
             
             quizScoreEl.textContent = `Score: ${score}`;
 
-            // Show mnemonic if it exists
-            const mnemonicEl = document.getElementById('quiz-mnemonic');
-            if (mnemonicEl && currentQuizCard.mnemonic) {
-                mnemonicEl.innerHTML = `<span class="text-amber-400 font-bold mr-2">💡 Trick:</span> ${currentQuizCard.mnemonic}`;
-                mnemonicEl.classList.remove('hidden');
-            }
+            if (isCorrect) {
+                // Wait a moment then load next automatically
+                setTimeout(() => {
+                    loadNextQuestion();
+                }, 1500);
+            } else {
+                // Incorrect: Show Next button and Mnemonic (if it exists)
+                const mnemonicWrapperEl = document.getElementById('quiz-mnemonic-wrapper');
+                const mnemonicEl = document.getElementById('quiz-mnemonic');
+                const nextBtn = document.getElementById('btn-quiz-next');
 
-            // Wait a moment then load next (longer delay if mnemonic is shown)
-            const delay = (mnemonicEl && currentQuizCard.mnemonic) ? 3500 : 1500;
-            setTimeout(() => {
-                loadNextQuestion();
-            }, delay);
+                if (mnemonicWrapperEl) {
+                    mnemonicWrapperEl.classList.remove('hidden');
+                    
+                    if (mnemonicEl && currentQuizCard.mnemonic) {
+                        mnemonicEl.innerHTML = `<span class="text-amber-400 font-bold mr-2">💡 Trick:</span> ${currentQuizCard.mnemonic}`;
+                        mnemonicEl.classList.remove('hidden');
+                    } else if (mnemonicEl) {
+                        mnemonicEl.classList.add('hidden');
+                    }
+
+                    // Attach one-time listener to Next button
+                    if (nextBtn) {
+                        // Clone to remove previous listeners
+                        const newNextBtn = nextBtn.cloneNode(true);
+                        nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
+                        newNextBtn.addEventListener('click', () => {
+                            loadNextQuestion();
+                        });
+                    }
+                } else {
+                    // Fallback if wrapper not found
+                    setTimeout(() => {
+                        loadNextQuestion();
+                    }, 1500);
+                }
+            }
         };
 
         const showQuizResults = () => {
