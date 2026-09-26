@@ -71,18 +71,18 @@ document.addEventListener('DOMContentLoaded', () => {
     const homeDrillDateEl = document.getElementById('home-next-drill-date');
     if (homeDrillDateEl) {
         const drills = [
-            { dates: "17-18 October 2026", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2026-10-17T00:00:00") },
-            { dates: "14-15 November 2026", type: "MUTA 4", loc: "CFMR", rawDate: new Date("2026-11-14T00:00:00") },
-            { dates: "12-13 December 2026", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2026-12-12T00:00:00") },
-            { dates: "23-24 January 2027", type: "MUTA 4", loc: "CFMR", rawDate: new Date("2027-01-23T00:00:00") },
-            { dates: "20-21 February 2027", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2027-02-20T00:00:00") },
-            { dates: "19-21 March 2027", type: "MUTA 2x2x2", loc: "CFMR", rawDate: new Date("2027-03-19T00:00:00") },
-            { dates: "17-18 April 2027", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2027-04-17T00:00:00") },
-            { dates: "14-16 May 2027", type: "MUTA 6", loc: "FT A.P. Hill", rawDate: new Date("2027-05-14T00:00:00") },
-            { dates: "04-18 June 2027", type: "Annual Training", loc: "CFMR/LCMR", rawDate: new Date("2027-06-04T00:00:00") },
-            { dates: "24-25 July 2027", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2027-07-24T00:00:00") },
-            { dates: "21-22 August 2027", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2027-08-21T00:00:00") },
-            { dates: "18-19 September 2027", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2027-09-18T00:00:00") }
+            { dates: "Oct 17-18, 2026", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2026-10-17T00:00:00") },
+            { dates: "Nov 14-15, 2026", type: "MUTA 4", loc: "CFMR", rawDate: new Date("2026-11-14T00:00:00") },
+            { dates: "Dec 12-13, 2026", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2026-12-12T00:00:00") },
+            { dates: "Jan 23-24, 2027", type: "MUTA 4", loc: "CFMR", rawDate: new Date("2027-01-23T00:00:00") },
+            { dates: "Feb 20-21, 2027", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2027-02-20T00:00:00") },
+            { dates: "Mar 19-21, 2027", type: "MUTA 2x2x2", loc: "CFMR", rawDate: new Date("2027-03-19T00:00:00") },
+            { dates: "Apr 17-18, 2027", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2027-04-17T00:00:00") },
+            { dates: "May 14-16, 2027", type: "MUTA 6", loc: "FT A.P. Hill", rawDate: new Date("2027-05-14T00:00:00") },
+            { dates: "Jun 04-18, 2027", type: "Annual Training", loc: "CFMR/LCMR", rawDate: new Date("2027-06-04T00:00:00") },
+            { dates: "Jul 24-25, 2027", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2027-07-24T00:00:00") },
+            { dates: "Aug 21-22, 2027", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2027-08-21T00:00:00") },
+            { dates: "Sep 18-19, 2027", type: "MUTA 2x2", loc: "CFMR", rawDate: new Date("2027-09-18T00:00:00") }
         ];
         
         const today = new Date();
