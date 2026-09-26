@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     {
                         text: "What was the make and model of the vehicle?",
                         correct: "Honda Civic",
-                        options: ["Honda Accord", "Toyota Civic", "Honda Civic", "Ford Corolla"]
+                        options: ["Honda Accord", "Toyota Corolla", "Honda Civic", "Ford Focus"]
                     },
                     {
                         text: "Where was the bumper sticker located?",
