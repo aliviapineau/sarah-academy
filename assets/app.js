@@ -53,9 +53,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const totalTrainingDays = getBusinessDays(startDate, gradDate);
         const completedTrainingDays = getBusinessDays(startDate, today);
 
-        // Update Circle Progress SVG
+        // Update Circle Progress SVG & Top Bar
         const percentage = Math.min((completedTrainingDays / totalTrainingDays) * 100, 100);
         document.getElementById('progress-text').textContent = Math.round(percentage) + '%';
+        const topProgressEl = document.getElementById('top-progress-text');
+        if (topProgressEl) {
+            topProgressEl.textContent = Math.round(percentage) + '%';
+        }
         
         // Circle circumference is 163.3 (2 * pi * r where r=26)
         const circle = document.getElementById('progress-circle');
