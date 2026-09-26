@@ -190,6 +190,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            // Hide mnemonic from previous question
+            const mnemonicEl = document.getElementById('quiz-mnemonic');
+            if (mnemonicEl) mnemonicEl.classList.add('hidden');
+
             // Pick the next code from the shuffled pool
             currentQuizCard = shuffledQuizPool[currentQuestion];
             
@@ -274,10 +278,18 @@ document.addEventListener('DOMContentLoaded', () => {
             
             quizScoreEl.textContent = `Score: ${score}`;
 
-            // Wait a moment then load next
+            // Show mnemonic if it exists
+            const mnemonicEl = document.getElementById('quiz-mnemonic');
+            if (mnemonicEl && currentQuizCard.mnemonic) {
+                mnemonicEl.innerHTML = `<span class="text-amber-400 font-bold mr-2">💡 Trick:</span> ${currentQuizCard.mnemonic}`;
+                mnemonicEl.classList.remove('hidden');
+            }
+
+            // Wait a moment then load next (longer delay if mnemonic is shown)
+            const delay = (mnemonicEl && currentQuizCard.mnemonic) ? 3500 : 1500;
             setTimeout(() => {
                 loadNextQuestion();
-            }, 1500);
+            }, delay);
         };
 
         const showQuizResults = () => {
