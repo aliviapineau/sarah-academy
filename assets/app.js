@@ -96,7 +96,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (nextDrill) {
             homeDrillDateEl.textContent = nextDrill.dates;
-            document.getElementById('home-next-drill-details').textContent = `${nextDrill.type} @ ${nextDrill.loc}`;
+            const detailsEl = document.getElementById('home-next-drill-details');
+            if (detailsEl) {
+                detailsEl.textContent = `${nextDrill.type} @ ${nextDrill.loc}`;
+            }
             
             const diffTime = Math.abs(nextDrill.rawDate - today);
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));

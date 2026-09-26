@@ -10,7 +10,7 @@
 <body class="bg-[#0f172a] text-slate-200 antialiased min-h-screen font-sans">
   
   <!-- Full-Width Black Top Bar -->
-  <div class="w-full bg-black border-b border-slate-800 px-6 py-3 flex justify-between items-center text-sm font-bold text-slate-400 uppercase tracking-wider relative mb-6 shadow-md">
+  <div class="w-full bg-black border-b border-slate-800 px-4 sm:px-6 py-3 flex justify-between items-center text-sm font-bold text-slate-400 uppercase tracking-wider relative mb-6 shadow-md">
     <div class="flex flex-col">
       <span class="text-[0.65rem] text-slate-500 font-semibold mb-0.5">Today's Date:</span>
       <span id="current-date-display" class="text-blue-400">--</span>
@@ -30,7 +30,7 @@
     </div>
   </div>
 
-  <div class="max-w-6xl mx-auto space-y-8 px-6">
+  <div class="max-w-6xl mx-auto space-y-8 px-4 sm:px-6">
     
     <!-- Header Section with Widgets -->
     <header class="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 pb-2">
@@ -64,7 +64,7 @@
         <!-- Graduation Countdown (Moved to Right, Prominent Glow on Number only) -->
         <div class="flex flex-col items-center justify-center p-4 flex-1 min-w-[200px] transform scale-105">
           <div class="text-3xl font-mono font-bold text-white mb-1 drop-shadow-md">
-            <span class="bg-purple-600 px-6 py-3 rounded-xl inline-block shadow-[0_0_20px_rgba(168,85,247,0.7)] border-2 border-purple-400" id="days-count">--</span>
+            <span class="bg-purple-600 px-4 sm:px-6 py-3 rounded-xl inline-block shadow-[0_0_20px_rgba(168,85,247,0.7)] border-2 border-purple-400" id="days-count">--</span>
           </div>
           <p class="text-[0.65rem] text-purple-300 uppercase tracking-wider font-bold mt-3 drop-shadow-sm text-center">Days Until Graduation</p>
         </div>
@@ -78,7 +78,7 @@
         
         <!-- Module: Rules and Regulations -->
         <a href="rules.html" class="block">
-          <div class="glass-card rounded-2xl p-6 hover-scale cursor-pointer flex flex-col justify-between h-56 border-t-4 border-t-red-500">
+          <div class="glass-card rounded-2xl p-6 hover-scale cursor-pointer flex flex-col justify-between h-auto border-t-4 border-t-red-500">
             <div>
               <div class="flex items-center gap-3 mb-2">
                 <div class="p-2 bg-red-500/20 rounded-lg">
@@ -94,7 +94,7 @@
 
         <!-- Module: Staff and Leadership -->
         <a href="leadership.html" class="block">
-          <div class="glass-card rounded-2xl p-6 hover-scale cursor-pointer flex flex-col justify-between h-56 border-t-4 border-t-amber-500">
+          <div class="glass-card rounded-2xl p-6 hover-scale cursor-pointer flex flex-col justify-between h-auto border-t-4 border-t-amber-500">
             <div>
               <div class="flex items-center gap-3 mb-2">
                 <div class="p-2 bg-amber-500/20 rounded-lg">
@@ -110,7 +110,7 @@
 
         <!-- Module: Handbook -->
         <a href="handbook.html" class="block">
-          <div class="glass-card rounded-2xl p-6 hover-scale cursor-pointer flex flex-col justify-between h-56 border-t-4 border-t-emerald-500">
+          <div class="glass-card rounded-2xl p-6 hover-scale cursor-pointer flex flex-col justify-between h-auto border-t-4 border-t-emerald-500">
             <div>
               <div class="flex items-center gap-3 mb-2">
                 <div class="p-2 bg-emerald-500/20 rounded-lg">
@@ -134,7 +134,7 @@
         
         <!-- Module: 10-Codes -->
         <a href="10-codes.html" class="block">
-          <div class="glass-card rounded-2xl p-6 hover-scale cursor-pointer flex flex-col justify-between h-56 border-t-4 border-t-blue-500">
+          <div class="glass-card rounded-2xl p-6 hover-scale cursor-pointer flex flex-col justify-between h-auto border-t-4 border-t-blue-500">
             <div>
               <div class="flex justify-between items-start mb-2">
                 <div class="flex items-center gap-3">
@@ -155,7 +155,7 @@
 
         <!-- Module: Phonetic Alphabet -->
         <a href="alphabet.html" class="block">
-          <div class="glass-card rounded-2xl p-6 hover-scale cursor-pointer flex flex-col justify-between h-56 border-t-4 border-t-fuchsia-500">
+          <div class="glass-card rounded-2xl p-6 hover-scale cursor-pointer flex flex-col justify-between h-auto border-t-4 border-t-fuchsia-500">
             <div>
               <div class="flex justify-between items-start mb-2">
                 <div class="flex items-center gap-3">
@@ -174,7 +174,7 @@
 
         <!-- Module: Manual Quiz -->
         <a href="manual-quiz.html" class="block">
-          <div class="glass-card rounded-2xl p-6 hover-scale cursor-pointer flex flex-col justify-between h-56 border-t-4 border-t-purple-500">
+          <div class="glass-card rounded-2xl p-6 hover-scale cursor-pointer flex flex-col justify-between h-auto border-t-4 border-t-purple-500">
             <div>
               <div class="flex justify-between items-start mb-2">
                 <div class="flex items-center gap-3">
@@ -201,7 +201,7 @@
 
         <!-- Module: Eagle Eye Observation -->
         <a href="observation.html" class="block">
-          <div class="glass-card rounded-2xl p-6 hover-scale cursor-pointer flex flex-col justify-between h-56 border-t-4 border-t-teal-500">
+          <div class="glass-card rounded-2xl p-6 hover-scale cursor-pointer flex flex-col justify-between h-auto border-t-4 border-t-teal-500">
             <div>
               <div class="flex justify-between items-start mb-2">
                 <div class="flex items-center gap-3">
@@ -220,7 +220,7 @@
 
         <!-- Module: Split-Second Salute -->
         <a href="salute.html" class="block">
-          <div class="glass-card rounded-2xl p-6 hover-scale cursor-pointer flex flex-col justify-between h-56 border-t-4 border-t-rose-500">
+          <div class="glass-card rounded-2xl p-6 hover-scale cursor-pointer flex flex-col justify-between h-auto border-t-4 border-t-rose-500">
             <div>
               <div class="flex justify-between items-start mb-2">
                 <div class="flex items-center gap-3">
