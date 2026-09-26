@@ -25,13 +25,27 @@ document.addEventListener('DOMContentLoaded', () => {
             {
                 title: "Scene 1: Suspect Description",
                 content: `
-                    <div class="flex justify-center items-center w-full h-full max-h-80 overflow-hidden rounded-xl border border-slate-600 shadow-inner">
-                        <img src="assets/suspect1.png" alt="Suspect" class="object-cover max-h-full">
+                    <div class="flex justify-center items-center w-full h-full rounded-xl border border-slate-600 shadow-inner overflow-hidden bg-slate-900 p-2">
+                        <img src="assets/suspect2.png" alt="Suspect" class="object-contain max-h-[400px]">
                     </div>
                 `,
-                question: "Which wrist was the suspect wearing the watch on?",
-                correct: "Right wrist",
-                options: ["Left wrist", "Right wrist", "Neither", "Both wrists"]
+                questions: [
+                    {
+                        text: "What was written on the suspect's hoodie?",
+                        correct: "OAK STREET SURF",
+                        options: ["OCEAN CITY SURF", "OAK STREET SURF", "OAK STREET SKATE", "PACIFIC COAST SURF"]
+                    },
+                    {
+                        text: "What color was the suspect's hat?",
+                        correct: "Blue",
+                        options: ["Black", "Blue", "Green", "Grey"]
+                    },
+                    {
+                        text: "Which arm had a visible tribal tattoo?",
+                        correct: "Right arm",
+                        options: ["Left arm", "Right arm", "Both arms", "No tattoos visible"]
+                    }
+                ]
             },
             {
                 title: "Scene 2: Traffic Stop",
@@ -43,9 +57,23 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p class="mt-4 text-slate-400 text-sm">2018 Blue Honda Civic. Bumper sticker on the bottom left.</p>
                     </div>
                 `,
-                question: "What was the license plate number?",
-                correct: "JXP-9482",
-                options: ["JXP-8492", "JPX-9482", "JXP-9482", "KXP-9482"]
+                questions: [
+                    {
+                        text: "What was the license plate number?",
+                        correct: "JXP-9482",
+                        options: ["JXP-8492", "JPX-9482", "JXP-9482", "KXP-9482"]
+                    },
+                    {
+                        text: "What was the make and model of the vehicle?",
+                        correct: "Honda Civic",
+                        options: ["Honda Accord", "Toyota Civic", "Honda Civic", "Ford Corolla"]
+                    },
+                    {
+                        text: "Where was the bumper sticker located?",
+                        correct: "Bottom left",
+                        options: ["Bottom right", "Top left", "Bottom left", "Center"]
+                    }
+                ]
             },
             {
                 title: "Scene 3: Desk Contraband",
@@ -58,16 +86,34 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <p class="mt-4 text-slate-400 text-sm">Contraband confiscated from locker #42.</p>
                 `,
-                question: "Which item was NOT on the desk?",
-                correct: "Cigarettes",
-                options: ["Cell phone", "Candy", "Cigarettes", "Pills"]
+                questions: [
+                    {
+                        text: "Which item was NOT on the desk?",
+                        correct: "Cigarettes",
+                        options: ["Cell phone", "Candy", "Cigarettes", "Pills"]
+                    },
+                    {
+                        text: "Which locker number was the contraband confiscated from?",
+                        correct: "42",
+                        options: ["24", "42", "44", "22"]
+                    },
+                    {
+                        text: "Which of the following was a weapon found on the desk?",
+                        correct: "Knife",
+                        options: ["Gun", "Brass Knuckles", "Knife", "Pepper Spray"]
+                    }
+                ]
             }
         ];
 
         let currentSceneIndex = 0;
+        let currentQuestionIndex = 0;
+        let score = 0;
         let viewInterval;
 
         const startObservation = () => {
+            currentQuestionIndex = 0;
+            score = 0;
             startScreen.classList.add('hidden');
             resultScreen.classList.add('hidden');
             quizScreen.classList.add('hidden');
@@ -86,29 +132,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 timerEl.textContent = timeLeft;
                 if (timeLeft <= 0) {
                     clearInterval(viewInterval);
-                    showQuiz();
+                    showNextQuestion();
                 }
             }, 1000);
         };
 
-        const showQuiz = () => {
+        const showNextQuestion = () => {
             viewScreen.classList.add('hidden');
             viewScreen.classList.remove('flex');
             quizScreen.classList.remove('hidden');
             quizScreen.classList.add('flex');
 
             const scene = scenes[currentSceneIndex];
-            questionEl.textContent = scene.question;
+            const questionData = scene.questions[currentQuestionIndex];
+            
+            questionEl.textContent = `Q${currentQuestionIndex + 1}/3: ${questionData.text}`;
             optionsEl.innerHTML = '';
 
-            const shuffledOptions = [...scene.options].sort(() => 0.5 - Math.random());
+            const shuffledOptions = [...questionData.options].sort(() => 0.5 - Math.random());
 
             shuffledOptions.forEach(opt => {
                 const btn = document.createElement('button');
                 btn.className = 'w-full text-left px-6 py-4 bg-slate-800 hover:bg-slate-700 border border-slate-600 rounded-xl text-white transition-colors';
                 btn.textContent = opt;
                 
-                btn.addEventListener('click', () => handleObsAnswer(opt, btn, scene.correct));
+                btn.addEventListener('click', () => handleObsAnswer(opt, btn, questionData.correct));
                 optionsEl.appendChild(btn);
             });
         };
@@ -119,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (selected === correct) {
                 btn.classList.replace('bg-slate-800', 'bg-green-600');
                 btn.classList.replace('hover:bg-slate-700', 'bg-green-600');
-                showResult(true);
+                score++;
             } else {
                 btn.classList.replace('bg-slate-800', 'bg-red-600');
                 btn.classList.replace('hover:bg-slate-700', 'bg-red-600');
@@ -130,34 +178,40 @@ document.addEventListener('DOMContentLoaded', () => {
                         b.classList.replace('border-slate-600', 'border-green-500');
                     }
                 });
-                showResult(false);
             }
-        };
 
-        const showResult = (passed) => {
             setTimeout(() => {
-                quizScreen.classList.add('hidden');
-                quizScreen.classList.remove('flex');
-                resultScreen.classList.remove('hidden');
-
-                if (passed) {
-                    resultMsg.textContent = "Sharp Eye! 🦅";
-                    resultMsg.className = "text-3xl font-bold text-teal-400 mb-2";
-                    resultDesc.textContent = "You remembered the details perfectly.";
+                currentQuestionIndex++;
+                if (currentQuestionIndex < scenes[currentSceneIndex].questions.length) {
+                    showNextQuestion();
                 } else {
-                    resultMsg.textContent = "Detail Missed! ❌";
-                    resultMsg.className = "text-3xl font-bold text-rose-400 mb-2";
-                    resultDesc.textContent = "In the field, details matter. Stay sharp.";
-                }
-
-                currentSceneIndex++;
-                if (currentSceneIndex >= scenes.length) {
-                    currentSceneIndex = 0; // Reset for infinite play loop
-                    btnNext.textContent = "Play Again";
-                } else {
-                    btnNext.textContent = "Next Challenge";
+                    showResult();
                 }
             }, 1500);
+        };
+
+        const showResult = () => {
+            quizScreen.classList.add('hidden');
+            quizScreen.classList.remove('flex');
+            resultScreen.classList.remove('hidden');
+
+            if (score === 3) {
+                resultMsg.textContent = "Sharp Eye! 🦅";
+                resultMsg.className = "text-3xl font-bold text-teal-400 mb-2";
+                resultDesc.textContent = "You remembered all the details perfectly (3/3).";
+            } else {
+                resultMsg.textContent = `Details Missed (${score}/3) ❌`;
+                resultMsg.className = "text-3xl font-bold text-rose-400 mb-2";
+                resultDesc.textContent = "In the field, details matter. Keep training to get 3/3.";
+            }
+
+            currentSceneIndex++;
+            if (currentSceneIndex >= scenes.length) {
+                currentSceneIndex = 0; // Reset for infinite play loop
+                btnNext.textContent = "Play Again";
+            } else {
+                btnNext.textContent = "Next Challenge";
+            }
         };
 
         btnStart?.addEventListener('click', startObservation);
