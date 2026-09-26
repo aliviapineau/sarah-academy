@@ -57,9 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const percentage = Math.min((completedTrainingDays / totalTrainingDays) * 100, 100);
         document.getElementById('progress-text').textContent = Math.round(percentage) + '%';
         
-        // Circle circumference is 75.4 (2 * pi * r where r=12)
+        // Circle circumference is 201 (2 * pi * r where r=32)
         const circle = document.getElementById('progress-circle');
-        const offset = 75.4 - (percentage / 100) * 75.4;
+        const offset = 201 - (percentage / 100) * 201;
         
         // Small delay so the transition animation actually plays on load
         setTimeout(() => {
