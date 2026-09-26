@@ -10,15 +10,18 @@
 <body class="bg-[#0f172a] text-slate-200 antialiased min-h-screen font-sans">
   
   <!-- Full-Width Black Top Bar -->
-  <div class="w-full bg-black border-b border-slate-800 px-6 py-4 flex justify-between items-center text-sm font-bold text-slate-400 uppercase tracking-wider relative mb-8 shadow-md">
-    <span id="current-date-display" class="text-blue-400">--</span>
-    <div class="flex items-center mr-20">
-      <span>Training Complete:</span>
-      <!-- Oversized Progress Circle breaking the container -->
-      <div class="absolute right-6 top-1/2 transform -translate-y-1/2 w-20 h-20 bg-slate-900 rounded-full flex items-center justify-center border-4 border-[#0f172a] shadow-lg overflow-hidden">
-        <svg class="w-20 h-20 transform -rotate-90">
-          <circle cx="40" cy="40" r="32" stroke="currentColor" stroke-width="6" fill="transparent" class="text-slate-800" />
-          <circle cx="40" cy="40" r="32" stroke="currentColor" stroke-width="6" fill="transparent" stroke-dasharray="201" stroke-dashoffset="201" class="text-emerald-500 transition-all duration-1000 ease-out" id="progress-circle" />
+  <div class="w-full bg-black border-b border-slate-800 px-6 py-3 flex justify-between items-center text-sm font-bold text-slate-400 uppercase tracking-wider relative mb-8 shadow-md">
+    <div class="flex flex-col">
+      <span class="text-[0.65rem] text-slate-500 font-semibold mb-0.5">Today's Date:</span>
+      <span id="current-date-display" class="text-blue-400">--</span>
+    </div>
+    <div class="flex items-center mr-16">
+      <span>Training Completed:</span>
+      <!-- Progress Circle (Slightly oversized) -->
+      <div class="absolute right-6 top-1/2 transform -translate-y-1/2 w-16 h-16 bg-slate-900 rounded-full flex items-center justify-center border-4 border-[#0f172a] shadow-lg overflow-hidden">
+        <svg class="w-16 h-16 transform -rotate-90">
+          <circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="5" fill="transparent" class="text-slate-800" />
+          <circle cx="32" cy="32" r="26" stroke="currentColor" stroke-width="5" fill="transparent" stroke-dasharray="163.4" stroke-dashoffset="163.4" class="text-emerald-500 transition-all duration-1000 ease-out" id="progress-circle" />
         </svg>
         <div class="absolute inset-0 flex items-center justify-center">
           <span class="text-sm font-bold text-white drop-shadow" id="progress-text">0%</span>
@@ -131,18 +134,20 @@
         <a href="10-codes.html" class="block">
           <div class="glass-card rounded-2xl p-6 hover-scale cursor-pointer flex flex-col justify-between h-56 border-t-4 border-t-blue-500">
             <div>
-              <div class="flex justify-between items-start mb-4">
-                <div class="p-3 bg-blue-500/20 rounded-lg">
-                  <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v4M8 6h8a2 2 0 012 2v12a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2zm4 10h.01M9 16h6M9 12h6"></path>
-                  </svg>
+              <div class="flex justify-between items-start mb-2">
+                <div class="flex items-center gap-3">
+                  <div class="p-2 bg-blue-500/20 rounded-lg">
+                    <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2v4M8 6h8a2 2 0 012 2v12a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2zm4 10h.01M9 16h6M9 12h6"></path>
+                    </svg>
+                  </div>
+                  <h3 class="text-lg font-bold text-white">10-Code Mastery</h3>
                 </div>
-                <span class="text-xs font-semibold bg-blue-500/20 text-blue-400 px-2 py-1 rounded-full">Active</span>
+                <span class="text-[0.65rem] uppercase tracking-wider font-bold bg-blue-500/20 text-blue-400 px-2 py-1 rounded">Active</span>
               </div>
-              <h3 class="text-xl font-bold text-white mb-1">10-Code Mastery</h3>
-              <p class="text-sm text-slate-400">Radio communication flashcards and quizzes.</p>
+              <p class="text-sm text-slate-400 mt-2">Radio communication flashcards and quizzes.</p>
             </div>
-            <button class="w-full py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-sm font-medium transition-colors">Start Review</button>
+            <button class="w-full mt-4 bg-blue-600 hover:bg-blue-500 text-white font-medium py-2 rounded-lg transition-colors">Start Review</button>
           </div>
         </a>
 
@@ -150,16 +155,18 @@
         <a href="alphabet.html" class="block">
           <div class="glass-card rounded-2xl p-6 hover-scale cursor-pointer flex flex-col justify-between h-56 border-t-4 border-t-indigo-500">
             <div>
-              <div class="flex justify-between items-start mb-4">
-                <div class="p-3 bg-indigo-500/20 rounded-lg">
-                  <svg class="w-6 h-6 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+              <div class="flex justify-between items-start mb-2">
+                <div class="flex items-center gap-3">
+                  <div class="p-2 bg-indigo-500/20 rounded-lg">
+                    <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path></svg>
+                  </div>
+                  <h3 class="text-lg font-bold text-white">Phonetic Alphabet</h3>
                 </div>
-                <span class="text-xs font-semibold bg-indigo-500/20 text-indigo-400 px-2 py-1 rounded-full">Active</span>
+                <span class="text-[0.65rem] uppercase tracking-wider font-bold bg-indigo-500/20 text-indigo-400 px-2 py-1 rounded">Active</span>
               </div>
-              <h3 class="text-xl font-bold text-white mb-1">Phonetic Alphabet</h3>
-              <p class="text-sm text-slate-400">Master the law enforcement alphabet.</p>
+              <p class="text-sm text-slate-400 mt-2">Master the law enforcement alphabet.</p>
             </div>
-            <button class="w-full py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium transition-colors">Start Review</button>
+            <button class="w-full mt-4 bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-2 rounded-lg transition-colors">Start Review</button>
           </div>
         </a>
 
@@ -167,16 +174,18 @@
         <a href="manual-quiz.html" class="block">
           <div class="glass-card rounded-2xl p-6 hover-scale cursor-pointer flex flex-col justify-between h-56 border-t-4 border-t-purple-500">
             <div>
-              <div class="flex justify-between items-start mb-4">
-                <div class="p-3 bg-purple-500/20 rounded-lg">
-                  <svg class="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+              <div class="flex justify-between items-start mb-2">
+                <div class="flex items-center gap-3">
+                  <div class="p-2 bg-purple-500/20 rounded-lg">
+                    <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                  </div>
+                  <h3 class="text-lg font-bold text-white">Handbook Exam</h3>
                 </div>
-                <span class="text-xs font-semibold bg-purple-500/20 text-purple-400 px-2 py-1 rounded-full">New</span>
+                <span class="text-[0.65rem] uppercase tracking-wider font-bold bg-purple-500/20 text-purple-400 px-2 py-1 rounded">New</span>
               </div>
-              <h3 class="text-xl font-bold text-white mb-1">Handbook Exam</h3>
-              <p class="text-sm text-slate-400">Test your knowledge of rules & regulations.</p>
+              <p class="text-sm text-slate-400 mt-2">Test your knowledge of rules & regulations.</p>
             </div>
-            <button class="w-full py-2 bg-purple-600 hover:bg-purple-500 text-white rounded-lg text-sm font-medium transition-colors">Take Quiz</button>
+            <button class="w-full mt-4 bg-purple-600 hover:bg-purple-500 text-white font-medium py-2 rounded-lg transition-colors">Take Quiz</button>
           </div>
         </a>
 

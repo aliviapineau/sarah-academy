@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (daysCountEl) {
         // Today's Date Display
         const today = new Date();
-        const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+        const options = { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' };
         const currentDateEl = document.getElementById('current-date-display');
         if (currentDateEl) {
             currentDateEl.textContent = today.toLocaleDateString('en-US', options);
