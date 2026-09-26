@@ -50,11 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
             {
                 title: "Scene 2: Traffic Stop",
                 content: `
-                    <div class="text-center bg-slate-800 p-6 rounded-xl border border-slate-600 w-full max-w-sm mx-auto shadow-inner">
-                        <div class="text-6xl mb-4">🚗</div>
-                        <p class="text-slate-300 font-bold mb-2">Vehicle Details</p>
-                        <p class="text-xl text-teal-400 font-mono tracking-widest bg-slate-900 py-2 rounded">JXP-9482</p>
-                        <p class="mt-4 text-slate-400 text-sm">2018 Blue Honda Civic. Bumper sticker on the bottom left.</p>
+                    <div class="flex justify-center items-center w-full h-full rounded-xl border border-slate-600 shadow-inner overflow-hidden bg-slate-900 p-2">
+                        <img src="assets/vehicle1.png" alt="Vehicle" class="object-contain max-h-[400px]">
                     </div>
                 `,
                 questions: [
