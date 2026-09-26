@@ -186,7 +186,7 @@ function startQuiz() {
 
 function loadQuestion() {
     const q = activeQuestions[currentQIndex];
-    document.getElementById('question-counter').textContent = \`Question \${currentQIndex + 1} of 10\`;
+    document.getElementById('question-counter').textContent = `Question ${currentQIndex + 1} of 10`;
     document.getElementById('question-text').textContent = q.q;
     
     const optionsContainer = document.getElementById('options-container');
@@ -234,7 +234,7 @@ function showResults() {
     document.getElementById('quiz-screen').classList.add('hidden');
     document.getElementById('results-screen').classList.remove('hidden');
     
-    document.getElementById('final-score').textContent = \`\${score} / 10\`;
+    document.getElementById('final-score').textContent = `${score} / 10`;
     
     const messageEl = document.getElementById('result-message');
     if (score === 10) {

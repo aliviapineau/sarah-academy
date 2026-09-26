@@ -170,23 +170,25 @@ document.addEventListener('DOMContentLoaded', () => {
         let currentQuestion = 0;
         let score = 0;
         let currentQuizCard = null;
+        let shuffledQuizPool = [];
 
         const startQuiz = () => {
             currentQuestion = 0;
             score = 0;
+            shuffledQuizPool = [...studyPool].sort(() => 0.5 - Math.random());
             quizResult.classList.add('hidden');
             quizQuestion.parentElement.classList.remove('hidden'); // Show question area
             loadNextQuestion();
         };
 
         const loadNextQuestion = () => {
-            if (currentQuestion >= TOTAL_QUESTIONS) {
+            if (currentQuestion >= TOTAL_QUESTIONS || currentQuestion >= shuffledQuizPool.length) {
                 showQuizResults();
                 return;
             }
 
-            // Pick a random code for the question
-            currentQuizCard = studyPool[Math.floor(Math.random() * studyPool.length)];
+            // Pick the next code from the shuffled pool
+            currentQuizCard = shuffledQuizPool[currentQuestion];
             
             // Randomly decide if asking for meaning or asking for code
             let askForMeaning = Math.random() > 0.5;
