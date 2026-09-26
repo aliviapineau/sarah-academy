@@ -42,8 +42,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     },
                     {
                         text: "Which arm had a visible tribal tattoo?",
-                        correct: "Right arm",
-                        options: ["Left arm", "Right arm", "Both arms", "No tattoos visible"]
+                        correct: "His Right arm (our left)",
+                        options: ["His Left arm (our right)", "His Right arm (our left)", "Both arms", "No tattoos visible"]
                     }
                 ]
             },
