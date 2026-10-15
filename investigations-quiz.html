@@ -71,7 +71,11 @@
           <div id="options-container" class="space-y-3">
              <!-- Options dynamically injected here -->
           </div>
-          <div id="feedback-box" class="hidden mt-5 p-3.5 rounded-xl bg-slate-800/90 border border-slate-700 text-sm text-slate-300 text-center"></div>
+          <div id="feedback-box" class="hidden mt-5 p-4 rounded-xl bg-slate-800/90 border border-slate-700 text-sm text-slate-300 text-left leading-relaxed"></div>
+          <button id="next-question-btn" onclick="nextQuestion()" class="hidden mt-4 w-full py-3.5 px-6 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-xl transition-colors shadow-lg shadow-cyan-900/40 flex items-center justify-center gap-2">
+            <span id="next-question-btn-text">Next Question</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </button>
         </div>
       </div>
 
@@ -84,6 +88,10 @@
         <p id="result-message" class="text-cyan-400 font-bold mb-8"></p>
         
         <div class="flex flex-wrap gap-3 justify-center">
+          <button id="toggle-review-btn" onclick="toggleTestReview()" class="px-6 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl transition-colors shadow-lg shadow-indigo-900/40 flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path></svg>
+            <span id="toggle-review-btn-text">View Test & Answers</span>
+          </button>
           <button onclick="startQuiz()" class="px-6 py-3 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-xl transition-colors">
             New 10-Question Round
           </button>
@@ -93,6 +101,20 @@
           <a href="investigations.html" class="px-6 py-3 bg-slate-700 hover:bg-slate-600 text-white font-bold rounded-xl transition-colors">
             Review Study Guide
           </a>
+        </div>
+
+        <!-- Test Review Section -->
+        <div id="test-review-container" class="hidden mt-8 pt-8 border-t border-slate-700 text-left space-y-4">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-4">
+            <h3 class="text-lg font-bold text-white">Test Review (10 Questions)</h3>
+            <div class="flex gap-2">
+              <button id="filter-all-btn" onclick="renderTestReview('all')" class="px-3 py-1 text-xs font-bold rounded-lg bg-cyan-600 text-white transition-colors">All (10)</button>
+              <button id="filter-missed-btn" onclick="renderTestReview('missed')" class="px-3 py-1 text-xs font-bold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-600 transition-colors">Missed Only</button>
+            </div>
+          </div>
+          <div id="test-review-list" class="space-y-4">
+            <!-- Populated dynamically -->
+          </div>
         </div>
       </div>
 

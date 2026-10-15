@@ -1284,6 +1284,16 @@ const unitFQuestions = [
 let activeQuestions = [];
 let currentQIndex = 0;
 let score = 0;
+let quizHistory = [];
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
 
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
@@ -1315,19 +1325,25 @@ function startQuiz() {
   activeQuestions = shuffleArray([...pool]).slice(0, 10);
   currentQIndex = 0;
   score = 0;
+  quizHistory = [];
 
   loadQuestion();
 }
 
 function loadQuestion() {
   const q = activeQuestions[currentQIndex];
-  document.getElementById('question-counter').textContent = `Question ${currentQIndex + 1} of 10`;
+  document.getElementById('question-counter').textContent = `Question ${currentQIndex + 1} of ${activeQuestions.length}`;
   document.getElementById('question-category').textContent = q.category;
   document.getElementById('question-text').textContent = q.q;
 
   const feedbackBox = document.getElementById('feedback-box');
   feedbackBox.classList.add('hidden');
   feedbackBox.innerHTML = '';
+
+  const nextBtn = document.getElementById('next-question-btn');
+  if (nextBtn) {
+    nextBtn.classList.add('hidden');
+  }
 
   const optionsContainer = document.getElementById('options-container');
   optionsContainer.innerHTML = '';
@@ -1357,31 +1373,47 @@ function checkAnswer(selected, qObj, btnNode) {
     }
   });
 
-  if (selected === qObj.correct) {
+  const isCorrect = selected === qObj.correct;
+  if (isCorrect) {
     score++;
   }
 
+  quizHistory.push({
+    qNum: currentQIndex + 1,
+    question: qObj,
+    selected: selected,
+    isCorrect: isCorrect
+  });
+
   const feedbackBox = document.getElementById('feedback-box');
   if (qObj.explanation) {
-    feedbackBox.innerHTML = `<span class="font-bold ${selected === qObj.correct ? 'text-emerald-400' : 'text-rose-400'}">${selected === qObj.correct ? '✓ Correct:' : '✗ Incorrect:'}</span> ${qObj.explanation}`;
+    feedbackBox.innerHTML = `<span class="font-bold ${isCorrect ? 'text-emerald-400' : 'text-rose-400'}">${isCorrect ? '✓ Correct:' : '✗ Incorrect:'}</span> ${escapeHtml(qObj.explanation)}`;
     feedbackBox.classList.remove('hidden');
   }
 
-  setTimeout(() => {
-    currentQIndex++;
-    if (currentQIndex < activeQuestions.length) {
-      loadQuestion();
-    } else {
-      showResults();
-    }
-  }, 2400);
+  const nextBtn = document.getElementById('next-question-btn');
+  const nextBtnText = document.getElementById('next-question-btn-text');
+  if (nextBtn && nextBtnText) {
+    const isLastQuestion = currentQIndex + 1 >= activeQuestions.length;
+    nextBtnText.textContent = isLastQuestion ? 'Finish & View Score' : 'Next Question';
+    nextBtn.classList.remove('hidden');
+  }
+}
+
+function nextQuestion() {
+  currentQIndex++;
+  if (currentQIndex < activeQuestions.length) {
+    loadQuestion();
+  } else {
+    showResults();
+  }
 }
 
 function showResults() {
   document.getElementById('quiz-screen').classList.add('hidden');
   document.getElementById('results-screen').classList.remove('hidden');
 
-  document.getElementById('final-score').textContent = `${score} / 10`;
+  document.getElementById('final-score').textContent = `${score} / ${activeQuestions.length}`;
 
   const messageEl = document.getElementById('result-message');
   if (score === 10) {
@@ -1397,4 +1429,116 @@ function showResults() {
     messageEl.textContent = "Keep studying the Unit F notes and retake the exam!";
     messageEl.className = "text-rose-400 font-bold mb-8";
   }
+
+  // Reset review drawer state
+  const reviewContainer = document.getElementById('test-review-container');
+  const toggleBtnText = document.getElementById('toggle-review-btn-text');
+  if (reviewContainer) {
+    reviewContainer.classList.add('hidden');
+  }
+  if (toggleBtnText) {
+    toggleBtnText.textContent = 'View Test & Answers';
+  }
+
+  const missedCount = quizHistory.filter(item => !item.isCorrect).length;
+  const filterAllBtn = document.getElementById('filter-all-btn');
+  const filterMissedBtn = document.getElementById('filter-missed-btn');
+  if (filterAllBtn) {
+    filterAllBtn.textContent = `All (${quizHistory.length})`;
+  }
+  if (filterMissedBtn) {
+    filterMissedBtn.textContent = `Missed Only (${missedCount})`;
+  }
+
+  renderTestReview('all');
+}
+
+function toggleTestReview() {
+  const reviewContainer = document.getElementById('test-review-container');
+  const toggleBtnText = document.getElementById('toggle-review-btn-text');
+  if (!reviewContainer) return;
+
+  const isHidden = reviewContainer.classList.contains('hidden');
+  if (isHidden) {
+    reviewContainer.classList.remove('hidden');
+    if (toggleBtnText) toggleBtnText.textContent = 'Hide Test Review';
+    reviewContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    reviewContainer.classList.add('hidden');
+    if (toggleBtnText) toggleBtnText.textContent = 'View Test & Answers';
+  }
+}
+
+function renderTestReview(filterMode) {
+  const listEl = document.getElementById('test-review-list');
+  const filterAllBtn = document.getElementById('filter-all-btn');
+  const filterMissedBtn = document.getElementById('filter-missed-btn');
+  if (!listEl) return;
+
+  if (filterAllBtn && filterMissedBtn) {
+    if (filterMode === 'missed') {
+      filterMissedBtn.className = "px-3 py-1 text-xs font-bold rounded-lg bg-rose-600 text-white transition-colors";
+      filterAllBtn.className = "px-3 py-1 text-xs font-bold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-600 transition-colors";
+    } else {
+      filterAllBtn.className = "px-3 py-1 text-xs font-bold rounded-lg bg-cyan-600 text-white transition-colors";
+      filterMissedBtn.className = "px-3 py-1 text-xs font-bold rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-600 transition-colors";
+    }
+  }
+
+  const items = filterMode === 'missed'
+    ? quizHistory.filter(item => !item.isCorrect)
+    : quizHistory;
+
+  if (items.length === 0) {
+    listEl.innerHTML = `
+      <div class="p-6 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-center text-emerald-300 font-medium">
+        🎉 Perfect score! You didn't miss any questions in this round.
+      </div>
+    `;
+    return;
+  }
+
+  listEl.innerHTML = items.map(item => {
+    const q = item.question;
+    const statusBadge = item.isCorrect
+      ? `<span class="px-2.5 py-0.5 text-xs font-bold rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">✓ Correct</span>`
+      : `<span class="px-2.5 py-0.5 text-xs font-bold rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/30">✗ Incorrect</span>`;
+
+    const borderClass = item.isCorrect ? 'border-emerald-500/30' : 'border-rose-500/40';
+
+    const userAnswerBlock = item.isCorrect
+      ? `<div class="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-sm">
+           <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 block mb-0.5">Your Answer (Correct):</span>
+           <span class="text-white font-medium">${escapeHtml(item.selected)}</span>
+         </div>`
+      : `<div class="space-y-2">
+           <div class="p-3 rounded-lg bg-rose-500/10 border border-rose-500/30 text-sm">
+             <span class="text-xs font-bold uppercase tracking-wider text-rose-400 block mb-0.5">Your Answer:</span>
+             <span class="text-rose-200 font-medium">${escapeHtml(item.selected)}</span>
+           </div>
+           <div class="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-sm">
+             <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 block mb-0.5">Correct Answer:</span>
+             <span class="text-white font-medium">${escapeHtml(q.correct)}</span>
+           </div>
+         </div>`;
+
+    return `
+      <div class="p-5 rounded-xl bg-slate-800/80 border ${borderClass} space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-2.5 py-0.5 rounded-full">Question ${item.qNum}</span>
+            <span class="text-xs font-medium text-slate-400">${escapeHtml(q.category)}</span>
+          </div>
+          ${statusBadge}
+        </div>
+        <p class="text-white font-bold text-base leading-snug">${escapeHtml(q.q)}</p>
+        ${userAnswerBlock}
+        ${q.explanation ? `
+          <div class="p-3 rounded-lg bg-slate-900/70 border border-slate-700 text-xs sm:text-sm text-slate-300 leading-relaxed">
+            <span class="font-bold text-cyan-400">Explanation:</span> ${escapeHtml(q.explanation)}
+          </div>
+        ` : ''}
+      </div>
+    `;
+  }).join('');
 }
