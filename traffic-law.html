@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traffic Law Study Guide #1 - BCPD 180th</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    .guide-card h3 {
+      color: #f8fafc;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 0.5rem;
+    }
+    .guide-card h4 {
+      color: #fbbf24;
+      font-weight: 600;
+      margin-top: 1rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .guide-card p {
+      color: #cbd5e1;
+      line-height: 1.65;
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+    }
+    .guide-card ul, .guide-card ol {
+      padding-left: 1.25rem;
+      color: #cbd5e1;
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+    }
+    .guide-card ul {
+      list-style-type: disc;
+    }
+    .guide-card ol {
+      list-style-type: decimal;
+    }
+    .guide-card li {
+      margin-bottom: 0.35rem;
+      line-height: 1.55;
+    }
+    .guide-card strong {
+      color: #f1f5f9;
+    }
+    .key-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      background: rgba(245, 158, 11, 0.15);
+      color: #fbbf24;
+      border: 1px solid rgba(245, 158, 11, 0.35);
+    }
+    .hw-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    .key-highlight {
+      background: rgba(245, 158, 11, 0.14);
+      border-left: 3px solid #f59e0b;
+      padding: 0.1rem 0.45rem;
+      border-radius: 0.25rem;
+      color: #fef3c7;
+      font-weight: 700;
+    }
+    .lesson-pill.active {
+      background-color: #d97706;
+      color: #ffffff;
+      border-color: #f59e0b;
+    }
+  </style>
+</head>
+<body class="bg-[#0f172a] text-slate-200 antialiased min-h-screen p-4 sm:p-6 font-sans">
+
+  <div class="max-w-5xl mx-auto space-y-6">
+
+    <!-- Header -->
+    <header class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-700 pb-6 sticky top-0 bg-[#0f172a]/95 backdrop-blur z-20 pt-2">
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="p-2 hover:bg-slate-800 rounded-lg transition-colors text-slate-400 hover:text-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        </a>
+        <div>
+          <div class="flex items-center gap-2.5 flex-wrap">
+            <h1 class="text-2xl font-bold text-white">Traffic Law Study Guide #1 (KEY)</h1>
+            <span class="px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/30 rounded-full">Exam Key</span>
+          </div>
+          <p class="text-slate-400 text-sm mt-1">Transportation Article, Warrantless Arrests, Pacing, Enforcement & Selective Enforcement</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+        <div class="relative flex-grow sm:w-60">
+          <input type="text" id="search-input" placeholder="Search titles, pacing, # items..." class="w-full bg-slate-800 border border-slate-600 rounded-lg pl-9 pr-3 py-2 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-amber-500 focus:ring-1 focus:ring-amber-500">
+          <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </div>
+        <a href="traffic-law-quiz.html" class="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white text-sm font-bold rounded-lg transition-colors whitespace-nowrap shadow-lg shadow-amber-900/40">
+          Practice Exam & Flashcards →
+        </a>
+      </div>
+    </header>
+
+    <!-- Key Legend Banner -->
+    <div class="glass-card rounded-xl p-4 border-l-4 border-l-amber-500 bg-amber-500/5 flex flex-wrap items-center justify-between gap-3 text-xs sm:text-sm">
+      <div class="flex items-center gap-2.5 text-slate-300">
+        <span class="key-badge">★ #1 – #17</span>
+        <span>Items marked with <strong class="text-amber-300"># numbers</strong> and <span class="key-highlight">gold highlights</span> are directly bolded/numbered on your instructor's <strong>Study Guide #1 KEY</strong>.</span>
+      </div>
+    </div>
+
+    <!-- Topic Filter Bar -->
+    <div class="flex flex-wrap gap-2">
+      <button onclick="filterTopic('all')" data-topic-btn="all" class="lesson-pill active px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border border-slate-700 bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">
+        All Sections
+      </button>
+      <button onclick="filterTopic('ta-titles')" data-topic-btn="ta-titles" class="lesson-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border border-slate-700 bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">
+        1. Transportation Article & Titles (11–27)
+      </button>
+      <button onclick="filterTopic('warrantless')" data-topic-btn="warrantless" class="lesson-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border border-slate-700 bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">
+        2. Warrantless Traffic Arrests (16)
+      </button>
+      <button onclick="filterTopic('enforcement')" data-topic-btn="enforcement" class="lesson-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border border-slate-700 bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">
+        3. Enforcement, Options & Pacing
+      </button>
+      <button onclick="filterTopic('selective')" data-topic-btn="selective" class="lesson-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border border-slate-700 bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">
+        4. Selective Enforcement, Profiling & Form #9
+      </button>
+    </div>
+
+    <!-- Content Container -->
+    <div class="space-y-8" id="guide-content">
+
+      <!-- =================================================================== -->
+      <!-- SECTION 1: TRANSPORTATION ARTICLE, PAYOUT BOOK & TITLES -->
+      <!-- =================================================================== -->
+      <section class="topic-section space-y-6" data-topic="ta-titles">
+        <div class="flex items-center gap-3 border-b border-amber-500/30 pb-2">
+          <span class="px-3 py-1 bg-amber-500/20 text-amber-300 text-xs font-bold uppercase tracking-wider rounded-full border border-amber-500/30">Part 1</span>
+          <h2 class="text-xl font-bold text-white">Maryland Transportation Article, Payout Book & Applicable Titles</h2>
+        </div>
+
+        <!-- Card 1.1: Core Reference Books & Breakdown -->
+        <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-amber-500">
+          <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+            <h3 class="!mb-0 !border-0 !pb-0">Transportation Article, Payout Book & Case Law</h3>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="key-badge">★ Exam #9</span>
+              <span class="hw-badge">Homework #2 & #3</span>
+            </div>
+          </div>
+          <div class="border-b border-slate-700 mb-4"></div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+            <div class="p-4 rounded-xl bg-slate-800/70 border border-slate-700">
+              <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-1">The Transportation Article (TA)</div>
+              <p class="!mb-0 text-sm">Contains the <strong>Maryland Traffic Laws</strong> broken down by <strong>Articles</strong>.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-slate-800/70 border border-slate-700">
+              <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-1">DC-CR-090 (Fine / Payout Book)</div>
+              <p class="!mb-0 text-sm">The <strong>Maryland District Court fine book (payout book)</strong>; contains the <strong>fines and points</strong> assessed for traffic law violations. <em>(Homework #3: Know how to use the TA and payout book to research traffic laws.)</em></p>
+            </div>
+          </div>
+
+          <h4>How a Transportation Article Citation is Broken Down (Example: TA 21-904 b 1)</h4>
+          <p class="text-xs text-slate-400 mb-3">Order from broadest to most specific <em>(Note: Not all laws have subsections and paragraphs)</em>:</p>
+          <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5 mb-5 text-center">
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-amber-500/30">
+              <div class="text-xs text-slate-400 uppercase font-semibold">1. Title</div>
+              <div class="text-xl font-bold text-amber-400 font-mono mt-0.5">21</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Rules of the Road</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-amber-500/30">
+              <div class="text-xs text-slate-400 uppercase font-semibold">2. Subtitle</div>
+              <div class="text-xl font-bold text-amber-400 font-mono mt-0.5">9</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Reckless/Fleeing</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-amber-500/30">
+              <div class="text-xs text-slate-400 uppercase font-semibold">3. Section</div>
+              <div class="text-xl font-bold text-amber-400 font-mono mt-0.5">04</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Fleeing & Eluding</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-amber-500/30">
+              <div class="text-xs text-slate-400 uppercase font-semibold">4. Subsection</div>
+              <div class="text-xl font-bold text-amber-400 font-mono mt-0.5">(b)</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Optional</div>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-900/80 border border-amber-500/30 col-span-2 sm:col-span-1">
+              <div class="text-xs text-slate-400 uppercase font-semibold">5. Paragraph</div>
+              <div class="text-xl font-bold text-amber-400 font-mono mt-0.5">(1)</div>
+              <div class="text-[11px] text-slate-400 mt-0.5">Optional</div>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="p-4 rounded-xl bg-cyan-500/10 border border-cyan-500/30">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs font-bold uppercase tracking-wider text-cyan-300">What is Case Law?</span>
+                <span class="hw-badge">Homework #2</span>
+              </div>
+              <p class="!mb-0 text-sm"><strong>Case law</strong> is law that is based on <strong>judicial decisions</strong> rather than law based on constitutions, statutes, or regulations.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30">
+              <div class="flex items-center justify-between mb-1">
+                <span class="text-xs font-bold uppercase tracking-wider text-amber-300">Classification of MD Traffic Laws</span>
+                <span class="key-badge">★ Exam #9</span>
+              </div>
+              <p class="!mb-0 text-sm">Most of Maryland's Traffic laws are <span class="key-highlight">misdemeanors</span>.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 1.2: 12 Applicable Titles -->
+        <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-amber-500">
+          <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+            <h3 class="!mb-0 !border-0 !pb-0">The 12 Transportation Article Titles Most Applicable to Law Enforcement</h3>
+            <span class="hw-badge">Homework #1</span>
+          </div>
+          <div class="border-b border-slate-700 mb-4"></div>
+
+          <p class="text-xs text-slate-400 mb-4">Notice which numbers are skipped: <strong>12, 15, 19, 23, 24</strong> are NOT in the law enforcement list.</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700 flex items-start gap-3">
+              <span class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 font-mono font-bold text-sm shrink-0">Title 11</span>
+              <div class="text-sm"><strong class="block text-white">Definitions; General Provisions</strong><span class="text-xs text-slate-400">Vehicle Laws</span></div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700 flex items-start gap-3">
+              <span class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 font-mono font-bold text-sm shrink-0">Title 13</span>
+              <div class="text-sm"><strong class="block text-white">Certificates of Title & Registration of Vehicles</strong><span class="text-xs text-slate-400">Vehicle Laws</span></div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700 flex items-start gap-3">
+              <span class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 font-mono font-bold text-sm shrink-0">Title 14</span>
+              <div class="text-sm"><strong class="block text-white">Anti-Theft Laws</strong><span class="text-xs text-slate-400">Vehicle Laws</span></div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700 flex items-start gap-3">
+              <span class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 font-mono font-bold text-sm shrink-0">Title 16</span>
+              <div class="text-sm"><strong class="block text-white">Drivers' Licenses</strong><span class="text-xs text-slate-400">Vehicle Laws</span></div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700 flex items-start gap-3">
+              <span class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 font-mono font-bold text-sm shrink-0">Title 17</span>
+              <div class="text-sm"><strong class="block text-white">Required Security (Insurance)</strong><span class="text-xs text-slate-400">Vehicle Laws</span></div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700 flex items-start gap-3">
+              <span class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 font-mono font-bold text-sm shrink-0">Title 18</span>
+              <div class="text-sm"><strong class="block text-white">For-Rent Vehicles</strong><span class="text-xs text-slate-400">Vehicle Laws</span></div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700 flex items-start gap-3">
+              <span class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 font-mono font-bold text-sm shrink-0">Title 20</span>
+              <div class="text-sm"><strong class="block text-white">Accidents & Accident Reporting</strong><span class="text-xs text-slate-400">Vehicle Laws</span></div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/40 flex items-start gap-3">
+              <span class="px-2.5 py-1 rounded-lg bg-amber-500 text-slate-950 font-mono font-bold text-sm shrink-0">Title 21</span>
+              <div class="text-sm"><strong class="block text-amber-300">Rules of the Road</strong><span class="text-xs text-amber-200/80">Moving violations, DUI, speed</span></div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700 flex items-start gap-3">
+              <span class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 font-mono font-bold text-sm shrink-0">Title 22</span>
+              <div class="text-sm"><strong class="block text-white">Equipment of Vehicles</strong><span class="text-xs text-slate-400">Lights, brakes, tires, SEROs</span></div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700 flex items-start gap-3">
+              <span class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 font-mono font-bold text-sm shrink-0">Title 25</span>
+              <div class="text-sm"><strong class="block text-white">Powers of State & Local Authorities</strong><span class="text-xs text-slate-400">Vehicle Laws</span></div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700 flex items-start gap-3">
+              <span class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 font-mono font-bold text-sm shrink-0">Title 26</span>
+              <div class="text-sm"><strong class="block text-white">Parties & Procedure on Citation, Arrest, Trial, and Appeal</strong><span class="text-xs text-slate-400">Warrantless arrest authority</span></div>
+            </div>
+            <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700 flex items-start gap-3">
+              <span class="px-2.5 py-1 rounded-lg bg-amber-500/20 text-amber-300 font-mono font-bold text-sm shrink-0">Title 27</span>
+              <div class="text-sm"><strong class="block text-white">Penalties; Disposition of Fines & Forfeitures</strong><span class="text-xs text-slate-400">Misdemeanor penalties</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- SECTION 2: WARRANTLESS ARREST FOR TRAFFIC VIOLATIONS -->
+      <!-- =================================================================== -->
+      <section class="topic-section space-y-6" data-topic="warrantless">
+        <div class="flex items-center gap-3 border-b border-rose-500/30 pb-2">
+          <span class="px-3 py-1 bg-rose-500/20 text-rose-300 text-xs font-bold uppercase tracking-wider rounded-full border border-rose-500/30">Part 2</span>
+          <h2 class="text-xl font-bold text-white">16 Circumstances for a Warrantless Traffic Arrest</h2>
+        </div>
+
+        <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-rose-500">
+          <h3>When an Officer Can Effect a Warrantless Arrest for a Traffic Violation</h3>
+          <p class="text-sm text-slate-300 mb-4">Your study guide lists <strong>16 specific circumstances</strong> under the Transportation Article (Title 26) where an officer may make a warrantless arrest for a traffic violation:</p>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Group A: Impairment, Crashes & Hit and Run -->
+            <div class="p-4 rounded-xl bg-slate-800/70 border border-slate-700">
+              <h4 class="!mt-0 text-rose-400">DUI, Hit & Run, and Serious Crashes (6)</h4>
+              <ol class="space-y-1.5 !mb-0">
+                <li><strong>DUI Alcohol</strong></li>
+                <li><strong>DUI Drugs</strong></li>
+                <li><strong>Hit & Run (Injury or Death)</strong> — failure to render reasonable assistance</li>
+                <li><strong>Hit & Run (Property Damage)</strong> — failure to notify</li>
+                <li><strong>Crash that caused bodily injury or death</strong></li>
+                <li><strong>Non-resident</strong> commits a violation and it <strong>resulted in a crash</strong></li>
+              </ol>
+            </div>
+
+            <!-- Group B: License, Identity & Citation Refusal -->
+            <div class="p-4 rounded-xl bg-slate-800/70 border border-slate-700">
+              <h4 class="!mt-0 text-rose-400">License, Identity & Citation Compliance (5)</h4>
+              <ol start="7" class="space-y-1.5 !mb-0">
+                <li><strong>Driving w/o a license</strong></li>
+                <li><strong>Driving w/ suspended or revoked license</strong></li>
+                <li><strong>Does not furnish satisfactory evidence of identity</strong></li>
+                <li><strong>Refusal to sign a citation</strong></li>
+                <li><strong>Disregard a traffic citation</strong></li>
+              </ol>
+            </div>
+
+            <!-- Group C: Fleeing, Racing & MVA Falsification -->
+            <div class="p-4 rounded-xl bg-slate-800/70 border border-slate-700">
+              <h4 class="!mt-0 text-rose-400">Fleeing, Racing & MVA Document Fraud (3)</h4>
+              <ol start="12" class="space-y-1.5 !mb-0">
+                <li><strong>Fleeing and eluding</strong></li>
+                <li><strong>Race or speed contest</strong></li>
+                <li><strong>Falsification of a title, registration card/plate, or any official MVA documents</strong></li>
+              </ol>
+            </div>
+
+            <!-- Group D: Commercial / Hazmat / Weight -->
+            <div class="p-4 rounded-xl bg-slate-800/70 border border-slate-700">
+              <h4 class="!mt-0 text-rose-400">Hazmat & Weighing Stations (2)</h4>
+              <ol start="15" class="space-y-1.5 !mb-0">
+                <li>Relating to <strong>vehicles transporting hazardous materials</strong></li>
+                <li><strong>Weighing Station</strong> (refusal to weigh) or to <strong>remove excess weight</strong> from it</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- SECTION 3: TRAFFIC ENFORCEMENT, OPTIONS, PACING & COMPLAINTS -->
+      <!-- =================================================================== -->
+      <section class="topic-section space-y-6" data-topic="enforcement">
+        <div class="flex items-center gap-3 border-b border-emerald-500/30 pb-2">
+          <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider rounded-full border border-emerald-500/30">Part 3</span>
+          <h2 class="text-xl font-bold text-white">Traffic Enforcement Principles, Options, Pacing & Complaints</h2>
+        </div>
+
+        <!-- Card 3.1: Why Enforce & Objectives -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-emerald-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">Why Enforce Traffic Laws</h3>
+              <div class="flex gap-1.5">
+                <span class="key-badge">★ Exam #11</span>
+                <span class="hw-badge">Homework #1</span>
+              </div>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <ul>
+              <li><span class="key-highlight">Public Safety (1st Priority)</span></li>
+              <li>Change behavior / Deter aggressive driving</li>
+              <li>Reduce crashes</li>
+              <li>Educate motorists</li>
+              <li>Deter and reduce criminal activity</li>
+            </ul>
+          </div>
+
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-emerald-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">Enforcement Objectives</h3>
+              <span class="key-badge">★ Exam #8</span>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <ul>
+              <li>Be proactive in your enforcement</li>
+              <li><span class="key-highlight">Identify problem drivers</span></li>
+              <li><span class="key-highlight">Remove improper/unsafe vehicles from the road</span></li>
+              <li>Reduce traffic related crashes</li>
+              <li>Use problem solving approach to traffic complaints</li>
+              <li>Document all traffic enforcement action taken</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Card 3.2: 2 Categories of Enforcement & Guidelines -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-emerald-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">2 Categories of Enforcement</h3>
+              <span class="key-badge">★ Exam #1</span>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+
+            <div class="space-y-3">
+              <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700">
+                <div class="mb-1"><span class="key-highlight">1. Proactive</span></div>
+                <ul class="!mb-0">
+                  <li><strong>Self-initiated enforcement</strong></li>
+                </ul>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700">
+                <div class="mb-1"><span class="key-highlight">2. Reactive</span> <span class="text-xs text-slate-300 font-semibold">(Traffic Complaints)</span></div>
+                <ul class="!mb-0">
+                  <li><strong>Citizen initiated</strong></li>
+                  <li><strong>Statistically generated</strong></li>
+                  <li><strong>Government Agency initiated</strong></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-emerald-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">Guideline for Enforcement</h3>
+              <span class="key-badge">★ Exam #14</span>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <ol class="space-y-2">
+              <li><span class="key-highlight">Identify that a violation has been committed</span></li>
+              <li>Charge violator with <strong>most appropriate violation</strong></li>
+              <li>Take <strong>appropriate actions</strong></li>
+              <li>Enforce <strong>fairly/impartially</strong></li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Card 3.3: Discretionary Elements & Enforcement Options -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-emerald-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">Discretionary Elements & Professionalism</h3>
+              <span class="key-badge">★ Exam #2 & #15</span>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <ul>
+              <li><span class="key-highlight">Charges must be based on violations either observed or investigated</span></li>
+              <li><span class="key-highlight">Charges should be based on seriousness of violation(s), observations by officer & evidence</span></li>
+              <li><span class="key-highlight">Enforcement action must be appropriate</span>
+                <ul class="mt-1">
+                  <li><em>Was your violation tolerance consistent?</em></li>
+                </ul>
+              </li>
+            </ul>
+            <h4>Professionalism</h4>
+            <ul class="!mb-0">
+              <li>Be <strong>consistent</strong> when enforcing traffic laws and during interactions with motorists</li>
+              <li><strong>Refrain from arguing</strong> with violators</li>
+            </ul>
+          </div>
+
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-emerald-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">6 Enforcement Options (Least → Most Punitive)</h3>
+              <span class="key-badge">★ Exam #7</span>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <ol class="space-y-2 !mb-0">
+              <li>Verbal or <span class="key-highlight">written warnings</span> <span class="text-xs font-bold text-emerald-400 uppercase">(Least Punitive)</span></li>
+              <li><strong>Request for Re-examination</strong> (MVA)</li>
+              <li>Issuance of <strong>Parking Citations</strong></li>
+              <li>Issuance of <strong>Safety Equipment Repair Orders (SEROs)</strong></li>
+              <li>Issuance of <strong>Traffic Citations</strong></li>
+              <li><strong>Physical Arrest</strong> <span class="text-xs font-bold text-rose-400 uppercase">(Most Punitive)</span></li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Card 3.4: Pacing & Citizen Complaints -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-emerald-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">How to <span class="text-amber-400 underline">Pace</span> a Vehicle (5 Steps)</h3>
+              <span class="key-badge">★ Exam #6</span>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <ol class="space-y-2 !mb-0">
+              <li><strong>Observe a vehicle</strong> that appears to be exceeding the speed limit.</li>
+              <li><strong>Position your vehicle at a safe distance</strong> behind the violator.</li>
+              <li>Follow for <span class="key-highlight">at least 3/10 mile</span>, maintain that <strong>exact distance</strong> between you and the violator, and maintain a <strong>constant speed</strong>.</li>
+              <li><strong>Match your speed</strong> with the violator's <em>(if speed varies, you <strong>must start your pace over</strong>)</em>.</li>
+              <li>After <strong>at least 3/10 of a mile</strong>, you can effect a traffic stop and issue a citation for the speed you paced.</li>
+            </ol>
+          </div>
+
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-emerald-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">Citizen Traffic Complaint Citations</h3>
+              <span class="key-badge">★ Exam #17</span>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <p class="text-sm font-semibold text-white mb-2">Can you write a citation after another citizen makes a traffic complaint to you? What are the 5 considerations?</p>
+            <ol class="space-y-1.5 !mb-0">
+              <li>Did a <strong>violation actually occur</strong>?</li>
+              <li>Can complainant describe/ID vehicle and <span class="key-highlight underline">driver</span>?</li>
+              <li>Does the complainant <strong>desire prosecution</strong>?</li>
+              <li>Is the complainant <strong>willing to testify in court</strong>?</li>
+              <li>Based on your interaction with the violator, do you feel a <strong>citation is the appropriate enforcement</strong>?</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- SECTION 4: SELECTIVE ENFORCEMENT, PROFILING & FORM #9 -->
+      <!-- =================================================================== -->
+      <section class="topic-section space-y-6" data-topic="selective">
+        <div class="flex items-center gap-3 border-b border-purple-500/30 pb-2">
+          <span class="px-3 py-1 bg-purple-500/20 text-purple-300 text-xs font-bold uppercase tracking-wider rounded-full border border-purple-500/30">Part 4</span>
+          <h2 class="text-xl font-bold text-white">Selective Enforcement, Bias-Based Profiling & Form #9</h2>
+        </div>
+
+        <!-- Card 4.1: Selective Enforcement Definition, Elements & 3 Types -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-purple-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">Define Selective Enforcement & Its 3 Elements</h3>
+              <span class="key-badge">★ Exam #3</span>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <p class="text-sm"><strong>Selective Traffic Law Enforcement</strong> is enforcement proportional to traffic accidents with respect to time, place, and type of violation:</p>
+            <h4>3 Elements of Selective Traffic Law Enforcement</h4>
+            <ol class="space-y-1.5 !mb-0">
+              <li><strong>Designed to reduce accidents</strong> (crashes)</li>
+              <li><strong>Time and place</strong> accidents frequently occur</li>
+              <li><strong>Types of violations</strong> that contribute to those accidents</li>
+            </ol>
+          </div>
+
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-purple-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">3 Types of Selective Enforcement</h3>
+              <span class="key-badge">★ Exam #5</span>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <ol class="space-y-3 !mb-0">
+              <li class="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700"><span class="key-highlight">1. Self-initiated</span></li>
+              <li class="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700"><span class="key-highlight">2. Complaint initiated</span></li>
+              <li class="p-2.5 rounded-lg bg-slate-800/80 border border-slate-700"><span class="key-highlight">3. Statistically generated</span></li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Card 4.2: 4 Stages of Selective Enforcement Cycle & 4-Step Problem Solving -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-purple-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">4 Stages of the Selective Enforcement Cycle</h3>
+              <span class="key-badge">★ Exam #4</span>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <ol class="space-y-2.5 !mb-0">
+              <li><strong>Visibility</strong> — saturation, omnipresence</li>
+              <li><strong>Deterrence</strong> — creating awareness</li>
+              <li><span class="key-highlight">Compliance — reinforced by enforcement action</span></li>
+              <li><strong>Non-Occurrence</strong> — never 100%, out of sight out of mind</li>
+            </ol>
+          </div>
+
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-purple-500">
+            <h3>4-Step Selective Traffic Enforcement Problem-Solving Approach</h3>
+            <ol class="space-y-2.5 !mb-0">
+              <li><strong>Identify / Define</strong> the problem</li>
+              <li><strong>Develop</strong> an enforcement strategy</li>
+              <li><strong>Implement</strong> enforcement strategy</li>
+              <li><strong>Evaluate / Follow up</strong></li>
+            </ol>
+          </div>
+        </div>
+
+        <!-- Card 4.3: 5 Enforcement Strategies, Bias-Based Profiling & Form #9 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-purple-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">5 Enforcement Strategies</h3>
+              <span class="key-badge">★ Exam #10</span>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <ol class="space-y-2 !mb-0">
+              <li>Location to stop — <span class="key-highlight">safe area to observe violations and safe locations to conduct the stops</span></li>
+              <li><span class="key-highlight">Permission needed for private property</span></li>
+              <li><strong>Random times & locations vs. Specific</strong></li>
+              <li><strong>Remain consistent</strong> in enforcement actions and interactions with motorists</li>
+              <li><strong>Make it a positive interaction</strong> for the violator</li>
+            </ol>
+          </div>
+
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-purple-500">
+            <h3>Bias-Based Profiling & Form #9</h3>
+            <p class="text-sm mb-2"><strong>Bias-Based Profiling:</strong> The selection of an individual for any police-initiated action based <strong>solely upon assumptions</strong> regarding a person's:</p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 mb-5">
+              <div class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-bold text-white text-center">1. Race</div>
+              <div class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-bold text-white text-center">2. Ethnicity</div>
+              <div class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-bold text-white text-center">3. Age</div>
+              <div class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-bold text-white text-center">4. Economic Status</div>
+              <div class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-bold text-white text-center">5. Religion</div>
+              <div class="px-3 py-1.5 rounded-lg bg-slate-800 border border-slate-700 text-xs font-bold text-white text-center">6. Cultural Group</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-amber-500/15 border border-amber-500/40 flex items-center justify-between">
+              <div>
+                <div class="text-xs font-bold uppercase tracking-wider text-amber-300">What traffic stops require a Form #9?</div>
+                <div class="text-lg font-bold text-white mt-0.5"><span class="key-highlight">"M" Stop</span></div>
+              </div>
+              <span class="key-badge">★ Key Item</span>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="glass-card rounded-2xl p-6 text-center border-t-2 border-t-amber-500/50 mt-8">
+      <h3 class="text-lg font-bold text-white mb-2">Ready to test yourself for tomorrow's exam?</h3>
+      <p class="text-slate-400 text-sm mb-4">Practice with flashcards or take a 10-question or full-pool exam covering every item on Study Guide #1 KEY.</p>
+      <a href="traffic-law-quiz.html" class="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 hover:bg-amber-500 text-white font-bold rounded-xl transition-colors shadow-lg shadow-amber-900/40">
+        Launch Traffic Law Practice Exam & Flashcards →
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    let currentTopic = 'all';
+
+    function filterTopic(topic) {
+      currentTopic = topic;
+      document.querySelectorAll('[data-topic-btn]').forEach(btn => {
+        if (btn.getAttribute('data-topic-btn') === topic) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const query = document.getElementById('search-input').value.trim().toLowerCase();
+      document.querySelectorAll('.topic-section').forEach(section => {
+        const secTopic = section.getAttribute('data-topic');
+        const matchesTopic = currentTopic === 'all' || secTopic === currentTopic;
+
+        if (!matchesTopic) {
+          section.classList.add('hidden');
+          return;
+        }
+
+        let anyVisibleCard = false;
+        section.querySelectorAll('.guide-card').forEach(card => {
+          const text = card.textContent.toLowerCase();
+          if (!query || text.includes(query)) {
+            card.classList.remove('hidden');
+            anyVisibleCard = true;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        if (anyVisibleCard) {
+          section.classList.remove('hidden');
+        } else {
+          section.classList.add('hidden');
+        }
+      });
+    }
+
+    document.getElementById('search-input').addEventListener('input', applyFilters);
+  </script>
+</body>
+</html>
