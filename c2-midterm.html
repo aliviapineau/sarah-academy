@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit C2 Midterm Study Guide - BCPD 180th</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    .guide-card h3 {
+      color: #f8fafc;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      border-bottom: 1px solid #334155;
+      padding-bottom: 0.5rem;
+    }
+    .guide-card h4 {
+      color: #f43f5e;
+      font-weight: 600;
+      margin-top: 1rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.92rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .guide-card p {
+      color: #cbd5e1;
+      line-height: 1.65;
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+    }
+    .guide-card ul, .guide-card ol {
+      padding-left: 1.25rem;
+      color: #cbd5e1;
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+    }
+    .guide-card ul {
+      list-style-type: disc;
+    }
+    .guide-card ol {
+      list-style-type: decimal;
+    }
+    .guide-card li {
+      margin-bottom: 0.35rem;
+      line-height: 1.55;
+    }
+    .guide-card strong {
+      color: #f1f5f9;
+    }
+    .item-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      background: rgba(244, 63, 94, 0.15);
+      color: #fda4af;
+      border: 1px solid rgba(244, 63, 94, 0.35);
+    }
+    .case-badge {
+      display: inline-flex;
+      align-items: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.15rem 0.5rem;
+      border-radius: 9999px;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    .key-highlight {
+      background: rgba(244, 63, 94, 0.15);
+      border-left: 3px solid #f43f5e;
+      padding: 0.1rem 0.45rem;
+      border-radius: 0.25rem;
+      color: #ffe4e6;
+      font-weight: 700;
+    }
+    .lesson-pill.active {
+      background-color: #e11d48;
+      color: #ffffff;
+      border-color: #f43f5e;
+    }
+  </style>
+</head>
+<body class="bg-[#0f172a] text-slate-200 antialiased min-h-screen p-4 sm:p-6 font-sans">
+
+  <div class="max-w-5xl mx-auto space-y-6">
+
+    <!-- Header -->
+    <header class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-700 pb-6 sticky top-0 bg-[#0f172a]/95 backdrop-blur z-20 pt-2">
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="p-2 hover:bg-slate-800 rounded-lg transition-colors text-slate-400 hover:text-white">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+        </a>
+        <div>
+          <div class="flex items-center gap-2.5 flex-wrap">
+            <h1 class="text-2xl font-bold text-white">C2 Midterm Study Guide</h1>
+            <span class="px-2.5 py-0.5 text-xs font-bold uppercase tracking-wider bg-rose-500/20 text-rose-300 border border-rose-500/30 rounded-full">27 Midterm Points</span>
+          </div>
+          <p class="text-slate-400 text-sm mt-1">4th Amendment, Search & Seizure, Probable Cause, Landmark Case Law & Warrantless Arrests</p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+        <div class="relative flex-grow sm:w-60">
+          <input type="text" id="search-input" placeholder="Search Katz, PC, stalking, domestic..." class="w-full bg-slate-800 border border-slate-600 rounded-lg pl-9 pr-3 py-2 text-sm text-white placeholder-slate-400 focus:outline-none focus:border-rose-500 focus:ring-1 focus:ring-rose-500">
+          <svg class="w-4 h-4 text-slate-400 absolute left-3 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </div>
+        <a href="c2-midterm-quiz.html" class="px-4 py-2 bg-rose-600 hover:bg-rose-500 text-white text-sm font-bold rounded-lg transition-colors whitespace-nowrap shadow-lg shadow-rose-900/40">
+          Midterm Exam & Flashcards →
+        </a>
+      </div>
+    </header>
+
+    <!-- Topic Filter Bar -->
+    <div class="flex flex-wrap gap-2">
+      <button onclick="filterTopic('all')" data-topic-btn="all" class="lesson-pill active px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border border-slate-700 bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">
+        All 27 Midterm Items
+      </button>
+      <button onclick="filterTopic('caselaw')" data-topic-btn="caselaw" class="lesson-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border border-slate-700 bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">
+        1. Landmark Cases & REP
+      </button>
+      <button onclick="filterTopic('pc')" data-topic-btn="pc" class="lesson-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border border-slate-700 bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">
+        2. Probable Cause, Standing & Exclusion
+      </button>
+      <button onclick="filterTopic('detention-arrest')" data-topic-btn="detention-arrest" class="lesson-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border border-slate-700 bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">
+        3. Terry Stops vs. Arrests & Force
+      </button>
+      <button onclick="filterTopic('warrantless')" data-topic-btn="warrantless" class="lesson-pill px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold border border-slate-700 bg-slate-800 text-slate-300 hover:bg-slate-700 transition-colors">
+        4. Exigency, Domestic, Stalking & "Evidence Or"
+      </button>
+    </div>
+
+    <!-- Content Container -->
+    <div class="space-y-8" id="guide-content">
+
+      <!-- =================================================================== -->
+      <!-- PART 1: LANDMARK SUPREME COURT CASES & REP -->
+      <!-- =================================================================== -->
+      <section class="topic-section space-y-6" data-topic="caselaw">
+        <div class="flex items-center gap-3 border-b border-rose-500/30 pb-2">
+          <span class="px-3 py-1 bg-rose-500/20 text-rose-300 text-xs font-bold uppercase tracking-wider rounded-full border border-rose-500/30">Part 1</span>
+          <h2 class="text-xl font-bold text-white">Landmark Supreme Court Cases & Reasonable Expectation of Privacy (REP)</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Katz v. US & Two Subjects in Public -->
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-rose-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">Katz v. United States & Public REP</h3>
+              <div class="flex gap-1.5">
+                <span class="item-badge">Items #3 & #8</span>
+                <span class="case-badge">Case Law</span>
+              </div>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <ul>
+              <li><strong>Principles of <em>Katz v. US</em> (#8):</strong>
+                <ul class="mt-1">
+                  <li><span class="key-highlight">Reasonable Expectation of Privacy (REP) was established</span>.</li>
+                  <li>You <strong>need a search warrant</strong> to go into somewhere someone has a <strong>REP</strong>.</li>
+                  <li>Shifted Fourth Amendment protection <span class="key-highlight">from PLACE to PEOPLE</span> (<em>"The Fourth Amendment protects people, not places"</em>).</li>
+                </ul>
+              </li>
+              <li class="mt-2"><strong>Two Subjects Talking in a Public Place (#3):</strong>
+                <ul class="mt-1">
+                  <li>They have <span class="key-highlight">NO Reasonable Expectation of Privacy (No REP)</span>. What a person knowingly exposes to the public is not protected by the 4th Amendment.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Aguilar v. Texas & Illinois v. Gates -->
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-rose-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">Aguilar v. Texas vs. Illinois v. Gates</h3>
+              <div class="flex gap-1.5">
+                <span class="item-badge">Items #11 & #25</span>
+                <span class="case-badge">Informants & PC</span>
+              </div>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <div class="space-y-3">
+              <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700">
+                <div class="text-xs font-bold uppercase tracking-wider text-rose-400 mb-1">Aguilar v. Texas — Two-Prong Test (#25)</div>
+                <p class="!mb-1 text-sm">Established the strict <strong>two-prong test</strong> for evaluating informant tips:</p>
+                <ol class="!mb-0 text-sm">
+                  <li><span class="key-highlight">Basis of Knowledge</span> (how the informant got the info)</li>
+                  <li><span class="key-highlight">Veracity</span> (truthfulness/credibility of the informant or reliability of the info)</li>
+                </ol>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700">
+                <div class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-1">Illinois v. Gates — Totality of the Circumstances (#11)</div>
+                <p class="!mb-0 text-sm">Replaced the rigid two-prong test from <em>Aguilar</em> with the <span class="key-highlight">Totality of the Circumstances</span> test when determining Probable Cause.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Terry v. Ohio & Florida v. Royer -->
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-rose-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">Terry v. Ohio vs. Florida v. Royer</h3>
+              <div class="flex gap-1.5">
+                <span class="item-badge">Items #12 & #24</span>
+                <span class="case-badge">Detention vs. Arrest</span>
+              </div>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <div class="space-y-3">
+              <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700">
+                <div class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1">Terry v. Ohio (#12)</div>
+                <p class="!mb-0 text-sm"><span class="key-highlight">They are NOT under arrest as soon as you approach them to detain them</span>. Approaching and briefly detaining a person on Reasonable Articulable Suspicion (RAS) is an investigative stop, not an arrest.</p>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700">
+                <div class="text-xs font-bold uppercase tracking-wider text-rose-400 mb-1">Florida v. Royer (#24)</div>
+                <p class="!mb-0 text-sm">Subject was <span class="key-highlight">held with no sense he was free to go and officers seized his personal artifacts</span> (kept his airline ticket, driver's license, and luggage and moved him to a small room) — turning an investigative stop into an unlawful arrest without probable cause.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Graham v. Connor -->
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-rose-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">Graham v. Connor — Excessive Force Factors</h3>
+              <div class="flex gap-1.5">
+                <span class="item-badge">Item #22</span>
+                <span class="case-badge">Use of Force</span>
+              </div>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <p class="text-sm"><strong><em>Graham v. Connor</em> (#22):</strong> Evaluates excessive force under the 4th Amendment <strong>Objective Reasonableness</strong> standard using <strong>3 core factors</strong>:</p>
+            <ol class="space-y-2 !mb-0">
+              <li><span class="key-highlight">Severity of the crime</span> at issue</li>
+              <li><span class="key-highlight">Evading</span> (whether the suspect is actively resisting arrest or attempting to evade arrest by flight)</li>
+              <li><span class="key-highlight">Danger to police or others</span> (whether the suspect poses an immediate threat to the safety of officers or others)</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- PART 2: PROBABLE CAUSE, STANDING, EXCLUSIONARY RULE & DISCOVERY -->
+      <!-- =================================================================== -->
+      <section class="topic-section space-y-6" data-topic="pc">
+        <div class="flex items-center gap-3 border-b border-amber-500/30 pb-2">
+          <span class="px-3 py-1 bg-amber-500/20 text-amber-300 text-xs font-bold uppercase tracking-wider rounded-full border border-amber-500/30">Part 2</span>
+          <h2 class="text-xl font-bold text-white">Probable Cause, Search Warrants, Standing, Exclusionary Rule & Discovery</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Probable Cause Complete Breakdown -->
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-amber-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">Probable Cause Definition & Core Rules</h3>
+              <span class="item-badge">Items #5, #6, #18, #23</span>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <div class="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 mb-4">
+              <div class="text-xs font-bold uppercase tracking-wider text-amber-300 mb-1">Official Definition of Probable Cause (#5)</div>
+              <p class="!mb-0 text-sm"><strong>Facts and circumstances</strong> within the officer's knowledge (and of which the officer has reasonably trustworthy information) that are sufficient in themselves to warrant a <strong>person of reasonable caution</strong> in the belief that an <strong>offense has been or is being committed</strong> (for an arrest) or that <strong>evidence/contraband of a crime will be found in a particular place</strong> (for a search).</p>
+            </div>
+            <ul class="!mb-0 space-y-2">
+              <li><strong>Search Warrant (#6):</strong> Always <span class="key-highlight">needs Probable Cause</span> (supported by oath or affirmation).</li>
+              <li><strong>Building PC (#18):</strong> <span class="key-highlight">One thing can't make probable cause, but multiple things can</span> (individual innocent or minor observations combine under the totality of the circumstances).</li>
+              <li><strong>Nature of PC (#23):</strong> <span class="key-highlight">Probable cause is NOT a standardized system</span> — it is a fluid, practical, common-sense concept, not a rigid formula or fixed percentage.</li>
+            </ul>
+          </div>
+
+          <!-- Standing, Exclusionary Rule & Discovery -->
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-amber-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">Standing, Exclusionary Rule & Discovery</h3>
+              <span class="item-badge">Items #9, #10, #13</span>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <div class="space-y-3">
+              <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700">
+                <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-1">Standing (#9)</div>
+                <p class="!mb-0 text-sm">Having a <span class="key-highlight">personal stake in something</span> (a personal Reasonable Expectation of Privacy in the area searched or property seized) required to challenge a search or seizure in court.</p>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700">
+                <div class="text-xs font-bold uppercase tracking-wider text-rose-400 mb-1">Exclusionary Rule (#10)</div>
+                <p class="!mb-0 text-sm">The rule that applies <span class="key-highlight">when something (illegally obtained evidence) gets thrown out of court</span> because it was seized in violation of the constitution.</p>
+              </div>
+              <div class="p-3.5 rounded-xl bg-slate-800/80 border border-slate-700">
+                <div class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-1">Discovery Process (#13)</div>
+                <p class="!mb-0 text-sm">The pre-trial process that <span class="key-highlight">can handle all documents relevant to your case</span> (reports, field notes, supplements, recordings shared with the defense/court).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- PART 3: SEIZURES, TERRY DETENTIONS, ARREST ELEMENTS & FORCE -->
+      <!-- =================================================================== -->
+      <section class="topic-section space-y-6" data-topic="detention-arrest">
+        <div class="flex items-center gap-3 border-b border-cyan-500/30 pb-2">
+          <span class="px-3 py-1 bg-cyan-500/20 text-cyan-300 text-xs font-bold uppercase tracking-wider rounded-full border border-cyan-500/30">Part 3</span>
+          <h2 class="text-xl font-bold text-white">Seizures vs. Arrests, Terry Detentions, 4 Elements of Arrest & Deadly Force</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Seizures vs Arrest & 4 Elements -->
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-cyan-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">Seizures vs. Arrests & The 4 Elements of Arrest</h3>
+              <span class="item-badge">Items #1, #2, #15</span>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <ul>
+              <li><strong>Is every seizure an arrest? (#1):</strong> <span class="key-highlight">NO!</span> Every arrest is a 4th Amendment seizure, but <strong>not every seizure is an arrest</strong> (for example, a <em>Terry</em> investigative stop is a temporary seizure, not an arrest).</li>
+              <li><strong>What is an arrest under the Constitution? (#2):</strong> An arrest is <span class="key-highlight">a seizure under the 4th Amendment</span> (requiring Probable Cause).</li>
+            </ul>
+            <h4>The 4 Elements of an Arrest (#15)</h4>
+            <ol class="space-y-1.5 !mb-0">
+              <li><span class="key-highlight">Intention to arrest</span></li>
+              <li><span class="key-highlight">Communication</span> (of that intent to the subject)</li>
+              <li><span class="key-highlight">Real or pretend authority</span></li>
+              <li><span class="key-highlight">Detention</span> (actual physical restraint or voluntary submission to custody)</li>
+            </ol>
+          </div>
+
+          <!-- Investigative Detention Rules -->
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-cyan-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">Investigative Detention (Terry Stop) Rules</h3>
+              <span class="item-badge">Items #7, #14, #27</span>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <ul class="space-y-3 !mb-0">
+              <li><strong>RAS to Detain vs. Frisk (#14):</strong> If you have <strong>Reasonable Articulable Suspicion (RAS) that criminal activity is afoot</strong>, you may <span class="key-highlight">detain them — NOT frisk them</span>! <em>(A frisk requires separate, additional RAS that the subject is <strong>armed and dangerous</strong>.)</em></li>
+              <li><strong>Specific Crime Not Required (#27):</strong> For an investigative detention stop, <span class="key-highlight">you do NOT need to know the specific crime</span> — only reasonable articulable suspicion that general criminal activity is afoot.</li>
+              <li><strong>Handcuffs & Seating During Detention (#7):</strong> You <span class="key-highlight">CAN place a subject in handcuffs and/or seated if they are detained</span> (when reasonably necessary for officer safety or to prevent flight) without turning the detention into an arrest.</li>
+            </ul>
+          </div>
+
+          <!-- Felony Gun Scenario & Deadly Force on Fleeing Subject -->
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-cyan-500 md:col-span-2">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">Felony Arrest + Search Incident to Arrest & Deadly Force on Fleeing Subject</h3>
+              <span class="item-badge">Items #17 & #20</span>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700">
+                <div class="text-xs font-bold uppercase tracking-wider text-rose-400 mb-1">Deadly Force Upon a Fleeing Subject (#17)</div>
+                <p class="!mb-0 text-sm">To use deadly force upon a fleeing subject, <span class="key-highlight">Probable Cause is needed</span> (specifically, Probable Cause to believe the suspect poses a significant threat of death or serious physical injury to the officer or others — <em>Tennessee v. Garner</em>).</p>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-800/80 border border-slate-700">
+                <div class="text-xs font-bold uppercase tracking-wider text-cyan-400 mb-1">Subject Points a Gun at Your Head (#20)</div>
+                <p class="!mb-0 text-sm">Pointing a gun at your head is <span class="key-highlight">a felony (1st Degree Assault) — arrest and Search Incident to Arrest (SILA)</span> of the person and their wingspan/immediate control area.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =================================================================== -->
+      <!-- PART 4: EXIGENCY, DOMESTIC ABUSE, STALKING & "EVIDENCE OR" -->
+      <!-- =================================================================== -->
+      <section class="topic-section space-y-6" data-topic="warrantless">
+        <div class="flex items-center gap-3 border-b border-emerald-500/30 pb-2">
+          <span class="px-3 py-1 bg-emerald-500/20 text-emerald-300 text-xs font-bold uppercase tracking-wider rounded-full border border-emerald-500/30">Part 4</span>
+          <h2 class="text-xl font-bold text-white">Home Exigencies, Domestic Abuse, Stalking & "Evidence Or" Rules</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Exigency in Entering a House & "Evidence Or" -->
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-emerald-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">3 Exigencies for Entering a House & "Evidence Or"</h3>
+              <span class="item-badge">Items #4 & #16</span>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <h4>3 Exigencies Allowing Warrantless Entry into a House (#4)</h4>
+            <ol class="space-y-1.5 mb-4">
+              <li><span class="key-highlight">Hot / fresh pursuit</span></li>
+              <li><span class="key-highlight">Protection of police or others</span> (emergency aid / life safety)</li>
+              <li><span class="key-highlight">Destruction of evidence</span> (preventing imminent destruction/removal)</li>
+            </ol>
+
+            <div class="p-4 rounded-xl bg-amber-500/10 border border-amber-500/30">
+              <div class="text-xs font-bold uppercase tracking-wider text-amber-300 mb-1">"Evidence Or" — Returning the Evidence (#16)</div>
+              <p class="!mb-0 text-sm"><span class="key-highlight">Can't lock them up if they give you the evidence back ("Evidence Or").</span> Under Maryland's conditional warrantless misdemeanor arrest rules, if the justification to arrest is to prevent the suspect from tampering with, disposing of, or destroying evidence, and the suspect <strong>already gave you the evidence back</strong> (with no other arrest exigency present), you <strong>cannot lock them up</strong> without a warrant.</p>
+            </div>
+          </div>
+
+          <!-- Domestic Abuse vs Child Abuse -->
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-emerald-500">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">Warrantless Arrest for Domestic Abuse (vs. Child Abuse)</h3>
+              <span class="item-badge">Items #21 & #26</span>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <h4>Requirements for Domestic Abuse Warrantless Arrest (#26)</h4>
+            <ol class="space-y-1.5 mb-4">
+              <li>Report made <span class="key-highlight">within 48 hours</span> of the incident</li>
+              <li>Parties are <span class="key-highlight">married (spouses) OR living together (cohabiting)</span></li>
+              <li>There is <span class="key-highlight">visible physical injury</span> (evidence of physical injury)</li>
+              <li>Exigency exists (may not be apprehended, may cause injury/property damage, or may tamper with/destroy evidence)</li>
+            </ol>
+
+            <div class="p-4 rounded-xl bg-rose-500/10 border border-rose-500/30">
+              <div class="text-xs font-bold uppercase tracking-wider text-rose-300 mb-1">Crucial Exception (#21)</div>
+              <p class="!mb-0 text-sm"><span class="key-highlight">Child abuse is NOT a domestic!</span> The Maryland domestic abuse warrantless arrest statute (CP § 2-204) applies only to spouses or cohabitants — it does <strong>not</strong> classify child abuse as a domestic abuse arrest.</p>
+            </div>
+          </div>
+
+          <!-- 3 Criteria of Stalking -->
+          <div class="glass-card guide-card rounded-2xl p-6 border-t-4 border-t-emerald-500 md:col-span-2">
+            <div class="flex flex-wrap justify-between items-start gap-2 mb-3">
+              <h3 class="!mb-0 !border-0 !pb-0">3 Criteria of Stalking Needed to Make a Warrantless Arrest (MD CP § 2-205)</h3>
+              <span class="item-badge">Item #19</span>
+            </div>
+            <div class="border-b border-slate-700 mb-4"></div>
+            <p class="text-sm mb-3">Under Maryland Criminal Procedure § 2-205, an officer may arrest a person <strong>without a warrant for Stalking</strong> only if all <strong>3 statutory criteria</strong> are met:</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div class="p-4 rounded-xl bg-slate-800/80 border border-emerald-500/30">
+                <div class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1">1. Probable Cause</div>
+                <p class="!mb-0 text-sm">The officer has <span class="key-highlight">probable cause to believe the person has engaged in stalking</span> (CR § 3-802).</p>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-800/80 border border-emerald-500/30">
+                <div class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1">2. Independent Credible Evidence</div>
+                <p class="!mb-0 text-sm">There is <span class="key-highlight">credible evidence OTHER than the statements of the alleged stalking victim</span> to support the probable cause.</p>
+              </div>
+              <div class="p-4 rounded-xl bg-slate-800/80 border border-emerald-500/30">
+                <div class="text-xs font-bold uppercase tracking-wider text-emerald-400 mb-1">3. Imminent Danger OR Flight Risk</div>
+                <p class="!mb-0 text-sm">The officer has reason to believe the victim (or another person) is in <span class="key-highlight">danger of imminent bodily harm OR the stalker will not be apprehended</span> unless immediately arrested.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="glass-card rounded-2xl p-6 text-center border-t-2 border-t-rose-500/50 mt-8">
+      <h3 class="text-lg font-bold text-white mb-2">Ready to test yourself on all 27 C2 Midterm points?</h3>
+      <p class="text-slate-400 text-sm mb-4">Take a 10-question, 20-question, or full 60-question practice midterm, or drill with the 27-card Flashcard deck.</p>
+      <a href="c2-midterm-quiz.html" class="inline-flex items-center gap-2 px-6 py-3 bg-rose-600 hover:bg-rose-500 text-white font-bold rounded-xl transition-colors shadow-lg shadow-rose-900/40">
+        Launch C2 Midterm Practice Exam & Flashcards →
+      </a>
+    </div>
+
+  </div>
+
+  <script>
+    let currentTopic = 'all';
+
+    function filterTopic(topic) {
+      currentTopic = topic;
+      document.querySelectorAll('[data-topic-btn]').forEach(btn => {
+        if (btn.getAttribute('data-topic-btn') === topic) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const query = document.getElementById('search-input').value.trim().toLowerCase();
+      document.querySelectorAll('.topic-section').forEach(section => {
+        const secTopic = section.getAttribute('data-topic');
+        const matchesTopic = currentTopic === 'all' || secTopic === currentTopic;
+
+        if (!matchesTopic) {
+          section.classList.add('hidden');
+          return;
+        }
+
+        let anyVisibleCard = false;
+        section.querySelectorAll('.guide-card').forEach(card => {
+          const text = card.textContent.toLowerCase();
+          if (!query || text.includes(query)) {
+            card.classList.remove('hidden');
+            anyVisibleCard = true;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        if (anyVisibleCard) {
+          section.classList.remove('hidden');
+        } else {
+          section.classList.add('hidden');
+        }
+      });
+    }
+
+    document.getElementById('search-input').addEventListener('input', applyFilters);
+  </script>
+</body>
+</html>
